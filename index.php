@@ -25,7 +25,6 @@
             <span>Alex</span>
             <span>Cristina</span>
             <span>Maria</span>
-            <span>Georgia</span>
         </div>
     </content>
 </body>
