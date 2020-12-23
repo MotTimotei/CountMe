@@ -25,11 +25,6 @@
             <span>Alex</span>
             <span>Cristina</span>
             <span>Maria</span>
-            <span>Georgia</span>
-            <span>Timi</span>
-            <span>Fabi</span>
-            <span>Mot</span>
-            <span></span>
         </div>
     </content>
 </body>
