@@ -29,7 +29,7 @@ include "includes/header.php";
     </div>
 </div>
 <div class="add_session organizeBox organizeBox__">
-    <button class="addSession_btn"><a href="db/createMainTable.php">Add Session</a></button>
+    <button class="addSession_btn"><a href="db/createSessionTable.php">Add Session</a></button>
         <div class="info_box">14 decembrie </div>
         <div class="info_box">16 decembrie</div>
         <div class="info_box">24 decembrie</div>

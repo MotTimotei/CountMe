@@ -19,9 +19,8 @@ lastname VARCHAR(100) NOT NULL,
 phone VARCHAR(20),
 email VARCHAR(50),
 programming_language VARCHAR(255),
-session_time INT(4),
-hour_cost FLOAT(4),
-reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+active BOOLEAN
 )";
 
 if ($conn->query($sql) === TRUE) {
@@ -43,15 +42,14 @@ $lastname = "Mot";
 $phone = "0747039963";
 $email = "timoteifabianmot@gmail.com";
 $programming_language = "java, JavaScript, Python, HTML, CSS";
-$session_time = "120";
-$hour_cost = "60";
+$active = false;
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
   
-  $sql = "INSERT INTO $mainTable (firstname, lastname, phone, email, programming_language, session_time, hour_cost)
-  VALUES ('$firstname', '$lastname', '$phone', '$email', '$programming_language', '$session_time', '$hour_cost')";
+  $sql = "INSERT INTO $mainTable (firstname, lastname, phone, email, programming_language, active)
+  VALUES ('$firstname', '$lastname', '$phone', '$email', '$programming_language', '$active')";
   
   if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
@@ -60,5 +58,7 @@ if ($conn->connect_error) {
   }
   
   $conn->close();
+
+  include "createSessionTable.php";
 ?>
 
