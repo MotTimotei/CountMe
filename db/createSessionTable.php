@@ -19,7 +19,7 @@ $sql = "CREATE TABLE $table (
 id_session INT(90) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 id_student INT(6) NOT NULL,
 session_time INT(4) NOT NULL,
-hour_cost INT(4) NOT NULL,
+price_hour INT(4) NOT NULL,
 paid INT(4) NOT NULL,
 programming_language VARCHAR(255),
 session_data_placed TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

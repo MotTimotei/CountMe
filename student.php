@@ -23,7 +23,7 @@ include "includes/header.php";
             <option value="">60 lei</option>
         </select>
         <div class="session_edit">
-            <button type="button">save</button>
+            <button type="button"><a href="db/createProgrammingLanguages.php">save</a></button>
         </div>
 
     </div>
