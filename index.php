@@ -25,6 +25,7 @@
             <span>Alex</span>
             <span>Cristina</span>
             <span>Maria</span>
+            <span>Marian</span>
         </div>
     </content>
 </body>
