@@ -45,7 +45,7 @@ if ($conn->query($sql) === TRUE) {
 #
 $id_student = 2;
 $session_time = 60;
-$hour_cost = 45;
+$price_hour = 45;
 $paid = 45;
 $programming_language = "Python";
 $session_data_sch = '2020-06-13 15:34:00';
@@ -56,8 +56,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
   
-  $sql = "INSERT INTO $table (id_student, session_time, hour_cost, paid, programming_language, session_data_sch, session_data_act, session_status)
-  VALUES ('$id_student', '$session_time', '$hour_cost', '$paid', '$programming_language', '$session_data_sch', '$session_data_act', '$session_status')";
+  $sql = "INSERT INTO $table (id_student, session_time, price_hour, paid, programming_language, session_data_sch, session_data_act, session_status)
+  VALUES ('$id_student', '$session_time', '$price_hour', '$paid', '$programming_language', '$session_data_sch', '$session_data_act', '$session_status')";
   
   if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
