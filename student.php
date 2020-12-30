@@ -23,14 +23,14 @@ include "includes/header.php";
             <option value="">60 lei</option>
         </select>
         <div class="session_edit">
-            <button type="button"><a href="db/createProgrammingLanguages.php">save</a></button>
+            <button type="button">save</button>
         </div>
 
     </div>
 </div>
 <div class="add_session organizeBox organizeBox__">
-    <button class="addSession_btn"><a href="db/createSessionTable.php">Add Session</a></button>
-        <div class="info_box"><a href="db/createMainTable.php">14 decembrie</a></div>
+    <button class="addSession_btn">Add Session</button>
+        <div class="info_box">14 decembrie</div>
         <div class="info_box">16 decembrie</div>
         <div class="info_box">24 decembrie</div>
 </div>
