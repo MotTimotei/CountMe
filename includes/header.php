@@ -2,7 +2,7 @@
 include "db/createDB.php";
 ?>
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -19,7 +19,7 @@ include "db/createDB.php";
             <a class="navBar_itms" href="students.php">Elevi</a>
         </nav>
         <div class="toggle_container">
-            <input type="checkbox" id="switch" name="theme"><label for="switch">Toggle</label>
+            <input type="checkbox" id="switch" name="theme"><label class="switch" for="switch">Toggle</label>
         </div>
         <div id="mounth">
             <select name="selectMounth" id="selectMount">

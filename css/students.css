@@ -1,3 +1,15 @@
+.stds__{display: flex;}
 .all_students{font-size: 2em;}
 .all_students li{line-height: 2em;color:var(--text-color)}
 .all_students li[unpayd="yes"]{color:var(--red-color);}
+.add_std_btn{margin:auto 0px 0px auto;border:0;opacity:0;transition:.3s;width:30px; height:30px;}
+.add_std_btn img{width:100%;height:auto;}
+.stds__:hover .add_std_btn{opacity: 1;}
+.add_std_btn:hover{transform: scale(1.1);}
+
+.add_std{width:100%;height:100%;position:absolute;top:0;left:0;background-color: rgba(0, 0, 0, 0.8);display: none;}
+.add_std_{width:400;height:520px;background-color: var(--bg-panel);margin:auto;border-radius:20px;padding:30px;display:block;}
+.addd_std_hdr{padding:10px;}
+.add_std_inp{display: inline-block;width:100%;margin-bottom:10px;padding:5px;}
+
+.visOFF{display: flex;}
