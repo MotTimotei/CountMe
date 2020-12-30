@@ -1,5 +1,3 @@
--- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2020-12-29 23:16:46.999
 
 -- tables
 -- Table: programming_language
@@ -7,6 +5,7 @@ CREATE TABLE programming_language (
     id int NOT NULL AUTO_INCREMENT,
     name varchar(100) NOT NULL,
     hour_cost int NOT NULL,
+    date_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT programming_language_pk PRIMARY KEY (id)
 );
 
