@@ -1,13 +1,11 @@
 <?php
 include 'includes/header.php';
+include 'db/myAutoLoader.php';
 ?>
-
 <div class="organizeBox organizeBox__ stds__">
-    <ul class="all_students">
-        <li unpayd="yes"><a href="student.php">1. Mot Timotei Fabian</a></li>
-        <li unpayd="no"><a href="student.php">2. Abrudan Titus Daniel</a></li>
-        <li unpayd="yes"><a href="student.php?name=Bara_Natanael#1">3. Bara Natanael</a></li>
-    </ul>
+    <?php
+    include 'db/classes/students.class.php';
+    ?>
     <button type="button" class="add_std_btn"><img src="img/add_person.svg"/></button>
 </div>
 <div class="add_std">

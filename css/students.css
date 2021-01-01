@@ -2,7 +2,7 @@
 .all_students{font-size: 2em;}
 .all_students li{line-height: 2em;color:var(--text-color)}
 .all_students li[unpayd="yes"]{color:var(--red-color);}
-.add_std_btn{margin:auto 0px 0px auto;border:0;opacity:0;transition:.3s;width:30px; height:30px;}
+.add_std_btn{margin:auto 0px 0px auto;border:0;opacity:0;transition:.3s;width:30px; height:30px;filter: invert(1);background-color: transparent;}
 .add_std_btn img{width:100%;height:auto;}
 .stds__:hover .add_std_btn{opacity: 1;}
 .add_std_btn:hover{transform: scale(1.1);}

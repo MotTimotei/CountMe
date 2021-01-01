@@ -21,6 +21,7 @@ body{background-color:var(--bg);color:var(--color-text)}
 a{text-decoration: none;color:inherit;}
 ul{list-style-type: none;}
 li{}
+button{text-decoration: none;border:none;outline:none}
 
 input[type=checkbox]{height:0;width:0;visibility: hidden;}
 .switch{cursor: pointer;text-indent: -9999px;width:52px;height:27px;background-color: grey;float: right;border-radius: 100px;position: relative;}
