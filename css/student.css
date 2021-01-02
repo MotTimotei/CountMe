@@ -4,5 +4,18 @@
 .std_name{font-size:2em;}
 
 .addSession_btn{display: block;margin-bottom: 10px;}
-.std_set_btn{width:30px;height:30px;background-color: transparent;filter: invert(1);margin:auto;margin-right:0px;}
+.std_set_btn{width:30px;height:30px;filter: invert(1);margin:auto;margin-right:0px;}
 .std_set_btn img{width:100%;height:auto;}
+
+.progr_langs{margin-bottom:10px;}
+.progr_langs label{display: block;margin-bottom:10px;}
+.std_prgLngs{border-radius: 20px;padding: 5px 10px;background-color: var(--bg);margin: 5px;line-height: 2.4;}
+.std_prgLngs[owned="no"]{opacity: .6;}
+.std_prgLngs[owned="no"]:hover{opacity:1;}
+.std_prgLngs[owned="no"] span{transform:rotateZ(45deg);background-color: var(--color-heading);}
+.std_prgLngs_cls{position:absolute;width:18px;height:18px;padding:4px;background-color:var(--red-color);border-radius: 50%;transition: .3s;}
+.std_prgLngs_cls_img{width:100%;height:auto;filter: invert(1);}
+.std_prgLngs_cls:hover{transform: scale(1.2)rotateZ(20deg);}
+.std_prgLngs_btn{margin:0px 14px;transition: .3s;}
+.std_prgLngs_btn::before{content:'\271A';color:var(--color-text);font-size: 1.4em;}
+.std_prgLngs_btn:hover{transform: scale(1.2);}

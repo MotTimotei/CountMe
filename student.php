@@ -2,9 +2,14 @@
 include "includes/header.php";
 include 'db/myAutoLoader.php';
 
-$student = new GetStudent();
+function returnIndex(){header("Location: /CountMe");}
 
+if(!$_GET['id']) returnIndex();
+
+$student = new GetStudent();
 $result = $student->showStudent( $_GET["id"]);
+
+if(!$result) returnIndex();
 
 ?>
 <div class="organizeBox stud_info stds__">
@@ -20,6 +25,7 @@ $result = $student->showStudent( $_GET["id"]);
             ?></span>
             <button class="add_std_btn"><img src="img/settings.svg" alt=""></button>
         </div>
+        
 
 
     </div>
@@ -42,4 +48,62 @@ $result = $student->showStudent( $_GET["id"]);
         <div class="info_box">14 decembrie</div>
         <div class="info_box">16 decembrie</div>
         <div class="info_box">24 decembrie</div>
+</div>
+
+<div class="add_std">
+    <div class="add_std_">
+        <form action="db/studentSettings.php" method="GET" enctype="multipart/form-data">
+            <h2 class="addd_std_hdr">Get started to add ...</h2>
+            <label for="first_name">First name</label>
+            <input name="first_name" id="first_name" type="text" class="add_std_inp" value="<?php echo $result["first_name"] ?>" required>
+            
+            <label for="last_name">Last name</label>
+            <input name="last_name" id="last_name" type="text"class="add_std_inp" value="<?php echo $result["last_name"] ?>" required>
+
+            <label for="gender">Gender</label>
+            <select name="gender" name="" id="gender" class="add_std_inp"  value="<?php echo $result["gender"] ?>" required>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="O">Other</option>
+            </select>
+            <label for="phone">Phone number</label>
+            <input name="phone" id="phone" type="phone" class="add_std_inp" value="<?php echo $result["phone"] ?>" required>
+            
+            <label for="email">e-mail</label>
+            <input name="email" id="email" type="email" class="add_std_inp" value="<?php echo $result["email"] ?>" required>
+            
+            <div class="progr_langs">            
+                <label>Programming Languages</label>
+                <span owned="yes" class="std_prgLngs">
+                    Java
+                    <span class="std_prgLngs_cls">
+                        <img src="img/close.svg" class="std_prgLngs_cls_img" alt="">
+                    </span>
+                </span>
+                <span owned="yes" class="std_prgLngs">JavaScript<span class="std_prgLngs_cls"><img src="img/close.svg" class="std_prgLngs_cls_img" alt=""></span></span>
+                <span owned="yes" class="std_prgLngs">Python<span class="std_prgLngs_cls"><img src="img/close.svg" class="std_prgLngs_cls_img" alt=""></span></span>
+                <span owned="yes" class="std_prgLngs">C#<span class="std_prgLngs_cls"><img src="img/close.svg" class="std_prgLngs_cls_img" alt=""></span></span>
+                <span owned="yes" class="std_prgLngs">C++<span class="std_prgLngs_cls"><img src="img/close.svg" class="std_prgLngs_cls_img" alt=""></span></span>
+                <span class="std_prgLngs"><button type="button" class="std_prgLngs_btn"></button></span>
+
+                <span owned="no" class="std_prgLngs">PHP<span class="std_prgLngs_cls"><img src="img/close.svg" class="std_prgLngs_cls_img" alt=""></span></span>
+               
+                
+            </div>
+            
+            <button name="add_std_btn" type="submit">Sign Up</button>
+            <button class="add_std_cls" type="button">Discard</button>
+        </form>
+    </div>
+    <script>
+        let a = document.querySelector('.add_std');
+        let b = document.querySelector('.add_std_btn');
+        let c = document.querySelector('.add_std_cls');
+
+        b.addEventListener('click', close_open)
+        c.addEventListener('click', close_open)
+        function close_open(){
+            a.classList.toggle('visOFF');
+        }
+    </script>
 </div>

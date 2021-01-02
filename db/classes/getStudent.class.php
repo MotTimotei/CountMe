@@ -3,9 +3,13 @@
 class GetStudent extends StudentsModel{
     
     public function showStudent($id){
-         $result = $this->getStudent($id);
-
+        if(!$id){
+            return false;
+        }
+        else{
+            $result = $this->getStudent($id);
          return $result;
+        }
     }
 }
 
