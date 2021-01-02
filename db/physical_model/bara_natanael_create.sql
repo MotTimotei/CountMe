@@ -35,7 +35,7 @@ CREATE TABLE students (
     phone varchar(14) NOT NULL,
     email varchar(100) NOT NULL,
     registration_date timestamp NOT NULL,
-    active_status boolean NOT NULL,
+    active_status boolean NOT NULL DEFAULT TRUE,
     CONSTRAINT students_pk PRIMARY KEY (id)
 );
 
@@ -56,7 +56,7 @@ CREATE TABLE teacher (
     phone varchar(20) NOT NULL,
     email varchar(100) NOT NULL,
     registration_date timestamp NOT NULL,
-    active_status boolean NOT NULL,
+    active_status boolean NOT NULL DEFAULT TRUE,
     teacher_settings_id int NOT NULL,
     CONSTRAINT teacher_pk PRIMARY KEY (id)
 );

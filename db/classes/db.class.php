@@ -1,16 +1,18 @@
 <?php
 
 class Db{
-    private $host = "localhost";
-    private $user = "root";
-    private $pwd = "";
-    private $dbName = "bara_natanael";
+    private $servername = 'localhost';
+    private $username = 'root';
+    private $password = '';
+    private $dbname = 'bara_natanael';
 
     protected function connect(){
-        $dsn = 'mysql:host=' . $this->host . ';dbname=' .$this->dbName;
-        $pdo = new PDO($dsn, $this->user, $this->pwd);
+        $dsn ='mysql:host='.$this->servername.';dbname='.$this->dbname;
+        $pdo = new PDO($dsn, $this->username, $this->password);
         $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
         return $pdo;
+
     }
 }
 

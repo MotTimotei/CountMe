@@ -1,10 +1,13 @@
 <?php
 include 'includes/header.php';
 include 'db/myAutoLoader.php';
+
+
 ?>
 <div class="organizeBox organizeBox__ stds__">
     <?php
-    include 'db/classes/students.class.php';
+        $haha = new StudentsView();
+        $haha->showStudents();
     ?>
     <button type="button" class="add_std_btn"><img src="img/add_person.svg"/></button>
 </div>

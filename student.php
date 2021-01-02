@@ -1,27 +1,10 @@
 <?php
 include "includes/header.php";
+include 'db/myAutoLoader.php';
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "bara_natanael";
+$student = new GetStudent();
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$id = $_GET["id"];
-
-$sql = "SELECT * FROM students WHERE id=$id";
-
-$result = $conn->query($sql);
-
-// output data of row
-$row = $result->fetch_assoc()
-
+$result = $student->showStudent( $_GET["id"]);
 
 ?>
 <div class="organizeBox stud_info stds__">
@@ -33,7 +16,7 @@ $row = $result->fetch_assoc()
     <div class="std_infOPT">
         <div class="stud_info_1 ">
             <span class="std_name"><?php
-                echo $row["last_name"] ." ". $row["first_name"];
+                echo $result["last_name"] ." ". $result["first_name"];
             ?></span>
             <button class="add_std_btn"><img src="img/settings.svg" alt=""></button>
         </div>

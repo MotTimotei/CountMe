@@ -1,5 +1,6 @@
 <?php
   include "includes/header.php";
+  include 'db/myAutoLoader.php';
 ?>
     
         <div id="main_info" class="organizeBox">
@@ -20,12 +21,13 @@
             <div class="info_box"><a href="student.php">Timi, 11 Dec 2020</a></div>
         </div>
         <div id="third_info" class="organizeBox organizeBox__">
-            <span>Denis</span>
-            <span>Andy</span>
-            <span>Alex</span>
-            <span>Cristina</span>
-            <span>Maria</span>
-            <span>Marian</span>
+            <?php
+            
+                $studentsObj = new StudentsView();
+                $studentsObj->showStudents("Ticarat");
+
+
+            ?>
         </div>
     </content>
 </body>
