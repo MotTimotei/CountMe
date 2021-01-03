@@ -4,7 +4,8 @@ include 'db/myAutoLoader.php';
 
 
 ?>
-<div class="organizeBox organizeBox__ stds__">
+<div class="organizeBox organizeBox__ stds___">
+    <h2>Students</h2>
     <?php
         $haha = new StudentsView();
         $haha->showStudents();

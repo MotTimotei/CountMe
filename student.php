@@ -31,20 +31,43 @@ if(!$result) returnIndex();
     </div>
 </div>
 <div class="add_session organizeBox organizeBox__">
-    <button class="addSession_btn">Add Session</button>
-    <select name="session_time" id="">
+    <h2>Upcoming sessions</h2>
+    
+    <div class="add_session">
+
+        <label for="choose_prg_lng">Language</label>
+        <select name="choose_prg_lng" id="">
+            <option value="">PHP</option>
+            <option value="">C#</option>
+            <option value="">Java</option>
+            <option value="">JavaScript</option>
+            <option value="">C++</option>
+        </select>
+
+        <label for="session_time">Session time</label>
+        <select name="session_time" id="">
             <option value="">1 hr</option>
             <option value="">2 hr</option>
             <option value="">3 hr</option>
         </select>
+
+        <label for="session_hour_cost">Cost/hour</label>
         <select name="session_hour_cost" id="">
             <option value="">45 lei</option>
             <option value="">50 lei</option>
             <option value="">60 lei</option>
         </select>
-        <div class="session_edit">
-            <button type="button">save</button>
-        </div>
+
+        <label for="pick_date">Date</label>
+        <input id="pick_date" name="pick_date" type="date">
+
+        <label for="pick_date">Time</label>
+        <input id="pick_date" name="pick_date" type="time">
+
+        <button class="addSession_btn">Add Session</button>
+
+    </div>
+        
         <div class="info_box">14 decembrie</div>
         <div class="info_box">16 decembrie</div>
         <div class="info_box">24 decembrie</div>
@@ -80,13 +103,13 @@ if(!$result) returnIndex();
                         <img src="img/close.svg" class="std_prgLngs_cls_img" alt="">
                     </span>
                 </span>
-                <span owned="yes" class="std_prgLngs">JavaScript<span class="std_prgLngs_cls"><img src="img/close.svg" class="std_prgLngs_cls_img" alt=""></span></span>
-                <span owned="yes" class="std_prgLngs">Python<span class="std_prgLngs_cls"><img src="img/close.svg" class="std_prgLngs_cls_img" alt=""></span></span>
-                <span owned="yes" class="std_prgLngs">C#<span class="std_prgLngs_cls"><img src="img/close.svg" class="std_prgLngs_cls_img" alt=""></span></span>
-                <span owned="yes" class="std_prgLngs">C++<span class="std_prgLngs_cls"><img src="img/close.svg" class="std_prgLngs_cls_img" alt=""></span></span>
+                <span owned="yes" class="std_prgLngs">JavaScript<span class="std_prgLngs_cls"></span></span>
+                <span owned="yes" class="std_prgLngs">Python<span class="std_prgLngs_cls"></span></span>
+                <span owned="yes" class="std_prgLngs">C#<span class="std_prgLngs_cls"></span></span>
+                <span owned="yes" class="std_prgLngs">C++<span class="std_prgLngs_cls"></span></span>
                 <span class="std_prgLngs"><button type="button" class="std_prgLngs_btn"></button></span>
 
-                <span owned="no" class="std_prgLngs">PHP<span class="std_prgLngs_cls"><img src="img/close.svg" class="std_prgLngs_cls_img" alt=""></span></span>
+                <span owned="selected" class="std_prgLngs">PHP<span class="std_prgLngs_cls"></span></span>
                
                 
             </div>
