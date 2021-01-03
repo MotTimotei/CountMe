@@ -25,13 +25,10 @@ if(!$result) returnIndex();
             ?></span>
             <button class="add_std_btn"><img src="img/settings.svg" alt=""></button>
         </div>
-        
-
-
     </div>
 </div>
-<div class="add_session organizeBox organizeBox__">
-    <h2>Upcoming sessions</h2>
+<div class="sec_info organizeBox organizeBox__">
+    <h2 id="">Upcoming sessions</h2>
     
     <div class="add_session">
 
@@ -64,7 +61,7 @@ if(!$result) returnIndex();
         <label for="pick_date">Time</label>
         <input id="pick_date" name="pick_date" type="time">
 
-        <button class="addSession_btn">Add Session</button>
+        <button class="">Add Session</button>
 
     </div>
         
@@ -95,8 +92,8 @@ if(!$result) returnIndex();
             <label for="email">e-mail</label>
             <input name="email" id="email" type="email" class="add_std_inp" value="<?php echo $result["email"] ?>" required>
             
-            <div class="progr_langs">            
-                <label>Programming Languages</label>
+            <div class="sec_info">            
+                <h3>Programming Languages</h3>
                 <span owned="yes" class="std_prgLngs">
                     Java
                     <span class="std_prgLngs_cls">
@@ -107,11 +104,13 @@ if(!$result) returnIndex();
                 <span owned="yes" class="std_prgLngs">Python<span class="std_prgLngs_cls"></span></span>
                 <span owned="yes" class="std_prgLngs">C#<span class="std_prgLngs_cls"></span></span>
                 <span owned="yes" class="std_prgLngs">C++<span class="std_prgLngs_cls"></span></span>
-                <span class="std_prgLngs"><button type="button" class="std_prgLngs_btn"></button></span>
+            
 
                 <span owned="selected" class="std_prgLngs">PHP<span class="std_prgLngs_cls"></span></span>
-               
-                
+
+                <span owned="no" class="std_prgLngs">HTML<span class="std_prgLngs_cls"></span></span>
+
+
             </div>
             
             <button name="add_std_btn" type="submit">Sign Up</button>
@@ -130,3 +129,6 @@ if(!$result) returnIndex();
         }
     </script>
 </div>
+<?php
+include 'includes/footer.php';
+?>

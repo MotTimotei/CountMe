@@ -15,8 +15,8 @@ include "db/createDB.php";
 <body>
     <header id="header">
         <nav id="navBar">
-            <a class="navBar_itms" href="index.php">Home</a>
-            <a class="navBar_itms" href="students.php">Elevi</a>
+            <a href="index.php">Home</a>
+            <a href="students.php">Elevi</a>
         </nav>
         <div class="toggle_container">
             <input type="checkbox" id="switch" name="theme"><label class="switch" for="switch">Toggle</label>

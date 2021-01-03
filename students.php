@@ -4,7 +4,7 @@ include 'db/myAutoLoader.php';
 
 
 ?>
-<div class="organizeBox organizeBox__ stds___">
+<div class="sec_info organizeBox organizeBox__ stds___">
     <h2>Students</h2>
     <?php
         $haha = new StudentsView();
@@ -51,3 +51,6 @@ include 'db/myAutoLoader.php';
         }
     </script>
 </div>
+<?php
+include 'includes/footer.php';
+?>
