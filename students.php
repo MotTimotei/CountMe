@@ -1,8 +1,5 @@
 <?php
-include 'includes/header.php';
-include 'db/myAutoLoader.php';
-
-
+include "includes/header.php";
 ?>
 <div class="sec_info organizeBox organizeBox__ stds___">
     <h2>Students</h2>

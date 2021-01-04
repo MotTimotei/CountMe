@@ -7,8 +7,8 @@ class StudentsModel extends Db{
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$id]);
 
-        $results = $stmt->fetch();
-        return $results;
+        $result = $stmt->fetch();
+        return $result;
     }
 
     protected function getAllStudents(){

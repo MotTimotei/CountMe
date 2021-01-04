@@ -1,8 +1,9 @@
 <?php
-include "db/createDB.php";
+include 'db/myAutoLoader.php';
+$teacherObj = new TeacherView();
 ?>
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="<?php echo $teacherObj->returnTheme('1')?>">
 
 <head>
     <meta charset="UTF-8">
@@ -12,15 +13,19 @@ include "db/createDB.php";
     <link rel="stylesheet" href="css/students.css">
     <title>Count Me</title>
 </head>
+<style>
+    <?php
+    
+    $teacherObj->showTheme("1");
+    ?>
+
+</style>
 <body>
     <header id="header">
         <nav id="navBar">
             <a href="index.php">Home</a>
             <a href="students.php">Elevi</a>
         </nav>
-        <div class="toggle_container">
-            <input type="checkbox" id="switch" name="theme"><label class="switch" for="switch">Toggle</label>
-        </div>
         <div id="mounth">
             <select name="selectMounth" id="selectMount">
                 <option value="">Ianuarie</option>
@@ -38,24 +43,4 @@ include "db/createDB.php";
             </select>
         </div>
     </header>
-    <script>
-        let checkbox = document.querySelector('input[name=theme]');
-
-        checkbox.addEventListener('change', function(){
-            if(this.checked){
-                trans();
-                document.documentElement.setAttribute('data-theme', 'dark');
-            } else {
-                trans();
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
-        })
-
-        let trans = () => {
-            document.documentElement.classList.add('transition');
-            window.setTimeout(() => {
-                document.documentElement.classList.remove('transition');
-            }, 1000)
-        }
-    </script>
     <content id="mainContent">

@@ -60,7 +60,6 @@ CREATE TABLE teacher (
     email varchar(100) NOT NULL,
     registration_date timestamp NOT NULL,
     active_status boolean NOT NULL DEFAULT true,
-    teacher_settings_id int NOT NULL,
     CONSTRAINT teacher_pk PRIMARY KEY (id)
 );
 
@@ -75,7 +74,9 @@ CREATE TABLE teacher_programming_languages (
 -- Table: teacher_settings
 CREATE TABLE teacher_settings (
     id int NOT NULL AUTO_INCREMENT,
+    teacher_id int NOT NULL,
     themes_id int NOT NULL,
+    date_time timestamp NOT NULL,
     CONSTRAINT teacher_settings_pk PRIMARY KEY (id)
 );
 
@@ -90,6 +91,7 @@ CREATE TABLE teacher_student (
 -- Table: themes
 CREATE TABLE themes (
     id int NOT NULL AUTO_INCREMENT,
+    teacher_id int NOT NULL,
     name varchar(100) NOT NULL,
     primary_color varchar(7) NOT NULL,
     secondary_color varchar(7) NOT NULL,
@@ -100,6 +102,7 @@ CREATE TABLE themes (
     plus1 varchar(7) NOT NULL,
     plus2 varchar(7) NOT NULL,
     plus3 varchar(7) NOT NULL,
+    data_time timestamp NOT NULL,
     CONSTRAINT themes_pk PRIMARY KEY (id)
 );
 
@@ -136,9 +139,34 @@ ALTER TABLE teacher_student ADD CONSTRAINT teacher_student_students_programming_
 ALTER TABLE teacher_student ADD CONSTRAINT teacher_student_teacher_programming_language FOREIGN KEY teacher_student_teacher_programming_language (teacher_programming_languages_id)
     REFERENCES teacher_programming_languages (id);
 
--- Reference: teacher_teacher_settings (table: teacher)
-ALTER TABLE teacher ADD CONSTRAINT teacher_teacher_settings FOREIGN KEY teacher_teacher_settings (teacher_settings_id)
-    REFERENCES teacher_settings (id);
+-- Reference: teacher_settings_teacher (table: teacher_settings)
+ALTER TABLE teacher_settings ADD CONSTRAINT teacher_settings_teacher FOREIGN KEY teacher_settings_teacher (teacher_id)
+    REFERENCES teacher (id);
+
+-- Reference: themes_teacher (table: themes)
+ALTER TABLE themes ADD CONSTRAINT themes_teacher FOREIGN KEY themes_teacher (teacher_id)
+    REFERENCES teacher (id);
+
+
+
+-- Inserting data into tables
+-- Inserting values to table: teacher
+INSERT INTO teacher (first_name, last_name, gender, phone, email)
+VALUES ('Natanael', 'Bara', 'M', '0745632777', 'baraNatanael@gmail.com');
+
+-- Inserting values to table: themes
+INSERT INTO themes (teacher_id, name, primary_color, secondary_color, third_color, primary_font_color, secondary_font_color)
+VALUES ('1', 'light', '#FCFCFC', '#EBEBEB', '#0077ff', '#333333', '#57b957');
+
+INSERT INTO themes (teacher_id, name, primary_color, secondary_color, third_color, primary_font_color, secondary_font_color)
+VALUES ('1', 'dark', '#333333', '#434343', '#0077ff', '#b5b5b5', '#57b957');
+
+INSERT INTO themes (teacher_id, name, primary_color, secondary_color, third_color, primary_font_color, secondary_font_color)
+VALUES ('1', 'old_school', '#2D3047', '#048A81', '#A799B7', '#93B7BE', '#E0CA3C');
+
+-- Inserting values to table: teacher_settings
+INSERT INTO teacher_settings (teacher_id, themes_id)
+VALUES ('1', '1');
 
 -- End of file.
 

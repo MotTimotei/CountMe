@@ -8,7 +8,7 @@
 .add_std_btn:hover{transform: scale(1.1);}
 
 .add_std{width:100%;height:100%;position:fixed;top:0;left:0;background-color: rgba(0, 0, 0, 0.8);display: none;}
-.add_std_{width:400;height:auto;max-height:90vh;background-color: var(--bg-panel);margin:auto;border-radius:20px;padding:30px;display:block;overflow-y: auto;}
+.add_std_{width:400px;height:auto;max-height:90vh;background-color: var(--bg-panel);margin:auto;border-radius:20px;padding:30px;display:block;overflow-y: auto;}
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .add_std_::-webkit-scrollbar {
@@ -17,5 +17,6 @@
 
 
 .add_std_inp{display: inline-block;width:100%;margin-bottom:10px;}
+.add_std_inp[name*="prg_"]{background-color: var(--bg-panel);}
 
 .visOFF{display: flex;}

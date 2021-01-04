@@ -1,6 +1,5 @@
 <?php
 include "includes/header.php";
-include 'db/myAutoLoader.php';
 
 function returnIndex(){header("Location: /CountMe");}
 
