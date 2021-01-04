@@ -51,8 +51,7 @@ class TeacherView extends TeacherModel{
                 </div>
 
                 <div class="std_prgLngs std_prgLngs_">
-                    <button type="button" class="std_prgLngs_btn"></button>
-                    
+                    <button type="button" class="std_prgLngs_btn" assignment="add_close"></button>
                 </div>
 
                 
@@ -77,9 +76,7 @@ class TeacherView extends TeacherModel{
                         <label for="sec_font">Secondary font</label>
                         <input name="sec_font" id="sec_font" class="theme_color" type="text" maxlength="7" value="#57b957" required>
                     
-                        <label for="thrd_font">Third font</label>
-                        <input name="thrd_font" id="thrd_font" class="theme_color" type="text" maxlength="7" value="#cccccc" required>
-                    </div>
+                     </div>
 
                     <div class="themes_displayed">
                     
