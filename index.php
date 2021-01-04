@@ -43,11 +43,7 @@ include "includes/header.php";
     <div class="sec_info add_std_">
         <h1 class="addd_std_hdr">Settings</h1>
         <form action="db/updateTeacherSettings.php" method="POST" enctype="multipart/form-data">
-            <?php 
-            $teacherObj->showTeacher("1");
-        ?>
-            
-            
+            <?php $teacherObj->showTeacher("1");?>
         </form>
     </div>
     <script src="js/popUpPanel.js"></script>
@@ -58,7 +54,7 @@ include "includes/header.php";
     d = document.querySelectorAll('.theme_color');
 
     d.forEach(element => {
-    element.addEventListener('keyup', check);
+        element.addEventListener('keyup', check);
     });
 
     function check(){
@@ -88,6 +84,45 @@ include "includes/header.php";
         });
     this.setAttribute('selected', 'yes');
     theme_inp_sel.setAttribute('value', this.getAttribute('theme_id'));
+    }
+</script>
+<script>
+    let std_prgLngs_btn = document.querySelector('.std_prgLngs_btn');
+    let std_prgLngs_ = document.querySelector('.std_prgLngs_');
+
+    std_prgLngs_btn.addEventListener('click', function(){
+        opcl();
+    });
+
+    function opcl(){
+        if(std_prgLngs_.classList.contains('std_prgLngs_2')) remove_delete();
+        else print();
+        std_prgLngs_.classList.toggle('std_prgLngs_2');
+        std_prgLngs_btn.classList.toggle('std_prgLngs_btn2');
+    }
+
+    function print(){
+        const ar = [
+            ['Name', 'prg_name'], 
+            ['Session time', 'prg_ses_tm'], 
+            ['Hour cost', 'prg_cost']
+        ];
+        console.log(ar.length);
+
+        for(let i = 0;i<ar.length;i++){
+            let div = document.createElement('div');
+            div.classList = 'inp_lbl';
+            div.innerHTML = '<label for="'+ar[i][1]+'">'+ar[i][0]+'</label><input name="'+ar[i][1]+'" id="'+ar[i][1]+'" type="text" class="add_std_inp" value="" required>';
+            std_prgLngs_.appendChild(div);
+        }
+    }
+
+    function remove_delete(){
+        let inp_lbl = document.querySelectorAll('.inp_lbl');
+        inp_lbl.forEach(elem => {
+            elem.remove();
+        });
+        
     }
 </script>
 <?php

@@ -52,20 +52,7 @@ class TeacherView extends TeacherModel{
 
                 <div class="std_prgLngs std_prgLngs_">
                     <button type="button" class="std_prgLngs_btn"></button>
-                    <div class="inp_lbl">
-                        <label for="prg_name">Name</label>
-                        <input name="prg_name" id="prg_name" type="text" class="add_std_inp" value="" required>
-                    </div>
-
-                    <div class="inp_lbl">
-                        <label for="prg_ses_tm">Session time</label>
-                        <input name="prg_ses_tm" id="prg_ses_tm" type="number" class="add_std_inp" value="" required>
-                    </div>
-
-                    <div class="inp_lbl">
-                        <label for="prg_cost">Hour cost</label>
-                        <input name="prg_cost" id="prg_cost" type="number" class="add_std_inp" value="" required>
-                    </div>
+                    
                 </div>
 
                 

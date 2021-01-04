@@ -20,4 +20,7 @@
 
 .std_prgLngs_btn{margin:0px auto;display:block;transition: .3s;display: flex;margin-bottom:0;}
 .std_prgLngs_btn::before{content:'\271A';color:var(--color-text);font-size: 1.4em;}
-.std_prgLngs_btn:hover{transform: scale(1.2)rotateZ(135deg);}
+.std_prgLngs_btn:hover{transform: scale(1.2);}
+
+.std_prgLngs_2{height:300px;}
+.std_prgLngs_btn2{transform:rotateZ(135deg);}
