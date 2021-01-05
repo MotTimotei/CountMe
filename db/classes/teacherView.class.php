@@ -57,24 +57,6 @@ class TeacherView extends TeacherModel{
             <div class="sec_info">
                 <h3>Themes</h3>
                 <div class="themes_stngs">
-                    <div class="thm_nm">
-                        <label for="prim_color">Primary color</label>
-                        <input name="prim_color" id="prim_color" class="theme_color" type="text" maxlength="7" value="#333333" required>
-                        
-                        <label for="sec_color">Secondary color</label>
-                        <input name="sec_color" id="sec_color" class="theme_color" type="text" maxlength="7" value="#434343" required>
-                    
-                        <label for="thrd_color">Third color</label>
-                        <input name="thrd_color" id="thrd_color" class="theme_color" type="text" maxlength="7" value="#0077ff" required>
-                    
-                        <label for="prim_font">Primary font</label>
-                        <input name="prim_font" id="prim_font" class="theme_color" type="text" maxlength="7" value="#b5b5b5" required>
-                    
-                        <label for="sec_font">Secondary font</label>
-                        <input name="sec_font" id="sec_font" class="theme_color" type="text" maxlength="7" value="#57b957" required>
-                    
-                     </div>
-
                     <div class="themes_displayed">
                     
                     ';
@@ -87,7 +69,7 @@ class TeacherView extends TeacherModel{
                                     <span class="thm_text"  style="color:'.$thms[$i]["primary_font_color"].'">'.$thms[$i]["name"].'</span>
                                     <div class="thm_box" style="background-color:'.$thms[$i]["secondary_color"].'">
                                         <div class="thm_text_box" style="color:'.$thms[$i]["primary_font_color"].';border-color:'.$thms[$i]['secondary_font_color'].'">AaaaBbbCcc</div>
-                                        <div class="thm_text_box thm_text_box_" style="background-color:'.$thms[$i]['secondary_font_color'].';border-color:'.$thms[$i]['secondary_font_color'].'; color:#ffffff;">AaaaBbbCcc</div>
+                                        <div class="thm_text_box thm__text_box_" style="background-color:'.$thms[$i]['secondary_font_color'].';border-color:'.$thms[$i]['secondary_font_color'].'; color:#ffffff;">AaaaBbbCcc</div>
                                     </div>
                                     <div class="thm_box" style="background-color:'.$thms[$i]["secondary_color"].'">
                                         <span class="thm_text2"  style="color:'.$thms[$i]["secondary_font_color"].'">AaaaBbbCcc</span>
@@ -98,28 +80,53 @@ class TeacherView extends TeacherModel{
                         }
                         ;
                     echo'
+                        <input class="theme_inp_sel" id="theme_selected" name="theme_selected" type="hidden" value="1">
+                        
+                        <div class="thm_view_add">
+                            <div class="thm_bck_add">
+                                <button type="button" class="btn_theme_add"></button>
+                            </div>
+                        </div>
+
+                    </div>
 
 
-                    <div class="thm_view_add">
-                        <div class="thm_bck_add">
+                    <div class="new_thm_setup">
+
+                        <div class="thm_view_new">
+                            <div class="thm_bck_new">
+                                <span class="thm_text_new"><input type="text" maxlength="7" placeholder="Theme`s name"/></span>
+                                <div class="thm_box_new">
+                                    <div class="thm_text_box_new">AaaaBbbCcc</div>
+                                    <div class="thm_text_box_new thm__text_box__new">AaaaBbbCcc</div>
+                                </div>
+                                <div class="thm_box_new"">
+                                    <span class="thm_text2_new">AaaaBbbCcc</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="thm_nm">
+                            <label for="prim_color">Primary color</label>
+                            <input name="prim_color" id="prim_color" class="add_std_inp theme_color" type="text" maxlength="7" value="#333333" required>
                             
+                            <label for="sec_color">Secondary color</label>
+                            <input name="sec_color" id="sec_color" class="add_std_inp theme_color" type="text" maxlength="7" value="#434343" required>
+                        
+                            <label for="thrd_color">Third color</label>
+                            <input name="thrd_color" id="thrd_color" class="add_std_inp theme_color" type="text" maxlength="7" value="#0077ff" required>
+                        
+                            <label for="prim_font">Primary font</label>
+                            <input name="prim_font" id="prim_font" class="add_std_inp theme_color" type="text" maxlength="7" value="#b5b5b5" required>
+                        
+                            <label for="sec_font">Secondary font</label>
+                            <input name="sec_font" id="sec_font" class="add_std_inp theme_color" type="text" maxlength="7" value="#57b957" required>
+                        
                         </div>
-                    </div>
-                    <div class="thm_view_new">
-                        <div class="thm_bck_new">
-                            <span class="thm_text_new"></span>
-                            <div class="thm_box_new">
-                                <div class="thm_text_box_new">AaaaBbbCcc</div>
-                                <div class="thm_text_box_new text_box__new">AaaaBbbCcc</div>
-                            </div>
-                            <div class="thm_box_new"">
-                                <span class="thm_text2_new">AaaaBbbCcc</span>
-                            </div>
-                        </div>
-                    </div>
 
 
-                    <input class="theme_inp_sel" id="theme_selected" name="theme_selected" type="hidden" value="1">
+                    
                     </div>
                 </div>
             </div>

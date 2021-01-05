@@ -85,7 +85,8 @@ include "includes/header.php";
     theme_inp_sel.setAttribute('value', this.getAttribute('theme_id'));
     }
 </script>
-<script src="js/index.js"></script>
+<script src="js/settingsProgrammingLanguages.js"></script>
+<script src="js/settingsThemes.js"></script>
 <?php
 include 'includes/footer.php';
 ?>

@@ -25,5 +25,7 @@
 .std_prgLngs_btn::before{content:'\271A';}
 .std_prgLngs_btn__::before{content:'\2714';}
 
-.std_prgLngs_2{height:330px;padding:30px 10px;}
+.std_prgLngs_2, .std_prgLngs_3{height:330px;padding:30px 10px;}
+.std_prgLngs_3{height:700px;}
+
 .std_prgLngs_btn2{transform:rotateZ(135deg);position:absolute;top:10px;left:auto;right:10px;}

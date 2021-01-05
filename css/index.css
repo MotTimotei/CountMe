@@ -53,8 +53,7 @@ input[type=checkbox]{height:0;width:0;visibility: hidden;}
 
 
 .themes_stngs{display: block;}
-.thm_nm{display: inline-grid;width:auto;}
-.thm_nm input[type="text"]{width:72px;}
+
 
 .themes_displayed{    width: 100%;
     margin: auto;
@@ -68,18 +67,64 @@ input[type=checkbox]{height:0;width:0;visibility: hidden;}
     margin: 5px;
     transition: .4s;transform:scale(.9)}
 .thm_view[selected="yes"]{transform:scale(.85);}
-.thm_view[selected="yes"] .bck{box-shadow: none;border:3px solid var(--color-heading)}
+.thm_view[selected="yes"] [class*="thm_bck"]{box-shadow: none;border:3px solid var(--color-heading)}
 .thm_view[selected="no"]:hover{transform:scale(1.1);z-index: 2;}
 [class*="thm_text2"]{font-size:.4em;display: block;}
-[class*="bck"]{width:100%;height:100%;position:absolute;top:0;left:0;background-color:var(--bg);border-radius: 10px;padding:10px;box-shadow: 0 0 6px 0 #cecdcd;}
-[class*="bck span"]{color:var(--color-text);}
-[class*="bck_add"]{padding:10%;font-size: 3em;}
-.bck_add::before{content:'\271A';    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center; width:100%;height:100%;}
-[class*="thm_box"]{border-radius:5px;margin:10px auto;width:100%;height:auto;padding:10px;background-color:var(--bg-panel);}
-[class*="text_box"]{font-size:.4em;padding:4px;background-color: transparent;color:var(--color-text);border: 1px solid var(--text-color);display: inline-block;}
-[class*="text_box_"]{color:inherit;background-color: var(--text-color);}
+[class*="thm_bck"]{width:100%;height:100%;position:absolute;top:0;left:0;background-color:var(--bg);border-radius: 10px;padding:10px;box-shadow: 0 0 6px 0 #cecdcd;}
+[class*="thm_bck"]span{color:var(--color-text);}
 
+[class*="thm_box"]{border-radius:5px;margin:10px auto;width:100%;height:auto;padding:10px;background-color:var(--bg-panel);}
+[class*="thm_text_box"]{font-size:.4em;padding:4px;background-color: transparent;color:var(--color-text);border: 1px solid var(--text-color);display: inline-block;}
+[class*="thm__text_box"]{color:inherit;background-color: var(--text-color);}
+
+.new_thm_setup{margin:5px;position:relative;}
+.thm_view_new{width:100%;padding-top:56.4%;margin:0;transform:scale(1);}
 .add_std_inp_sh{box-shadow:0 0 4px 1px  var(--red-color);}
+
+.theme_color{text-align: center;}
+.thm_nm{display: inline-grid;width:100%;padding:5px;}
+.thm_nm input[type="text"]{width:auto;}
+
+
+.btn_theme_add{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);}
+.btn_theme_add::before{content:'\271A';    display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;font-size: 4em;color:var(--color-text);}
+.btn_theme_new{top:10px;left:auto;right:10px;transform: rotateZ(135deg);}
+
+/*
+
+ <div class="thm_view_new">
+                                <div class="thm_bck_new" id="thm_bck_new">
+                                    <span class="thm_text_new"><input type="text" maxlength="7" placeholder="Theme`s name"/></span>
+                                    <div class="thm_box_new">
+                                        <div class="thm_text_box_new">AaaaBbbCcc</div>
+                                        <div class="thm_text_box_new thm__text_box__new">AaaaBbbCcc</div>
+                                    </div>
+                                    <div class="thm_box_new"">
+                                        <span class="thm_text2_new">AaaaBbbCcc</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="thm_nm">
+                                <label for="prim_color">Primary color</label>
+                                <input name="prim_color" id="prim_color" class="add_std_inp theme_color" type="text" maxlength="7" value="#333333" required>
+                                
+                                <label for="sec_color">Secondary color</label>
+                                <input name="sec_color" id="sec_color" class="add_std_inp theme_color" type="text" maxlength="7" value="#434343" required>
+                            
+                                <label for="thrd_color">Third color</label>
+                                <input name="thrd_color" id="thrd_color" class="add_std_inp theme_color" type="text" maxlength="7" value="#0077ff" required>
+                            
+                                <label for="prim_font">Primary font</label>
+                                <input name="prim_font" id="prim_font" class="add_std_inp theme_color" type="text" maxlength="7" value="#b5b5b5" required>
+                            
+                                <label for="sec_font">Secondary font</label>
+                                <input name="sec_font" id="sec_font" class="add_std_inp theme_color" type="text" maxlength="7" value="#57b957" required>
+                            
+                            </div>
+
+*/
