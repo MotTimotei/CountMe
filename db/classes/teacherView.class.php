@@ -9,7 +9,7 @@ class TeacherView extends TeacherModel{
         
         if($result){
             echo '
-            
+            <h3>General info</h3>
             <label for="first_name">First name</label>
             <input name="first_name" id="first_name" type="text" class="add_std_inp" value="'.$result["first_name"].'" required>
             
@@ -28,12 +28,12 @@ class TeacherView extends TeacherModel{
             <label for="email">e-mail</label>
             <input name="email" id="email" type="email" class="add_std_inp" value="'.$result["email"].'" required>
             
-            <h3>General info</h3>
+           
             <div class="pr_ln">  
                 <div class="pr_ln__">  
-                    <div class="sec_info">         
+                    <div class="sec_info classes">         
                     
-                        <h3>Programming Languages</h3>
+                        <h3>Classes</h3>
                         <span owned="yes" class="std_prgLngs">
                             Java
                             <span class="std_prgLngs_cls">
@@ -44,9 +44,6 @@ class TeacherView extends TeacherModel{
                         <span owned="yes" class="std_prgLngs">Python<span class="std_prgLngs_cls"></span></span>
                         <span owned="yes" class="std_prgLngs">C#<span class="std_prgLngs_cls"></span></span>
                         <span owned="yes" class="std_prgLngs">C++<span class="std_prgLngs_cls"></span></span>
-                    
-
-                        <span owned="selected" class="std_prgLngs">PHP<span class="std_prgLngs_cls"></span></span>
                     </div>
                 </div>
 
@@ -86,13 +83,13 @@ class TeacherView extends TeacherModel{
                             $selected = ($thms[$i]["id"] == $this->getSettings($id)["themes_id"]) ? "yes" : "no";
                             echo ' 
                             <div class="thm_view" selected="'.$selected.'" theme_id="'.$thms[$i]["id"].'">
-                                <div class="bck" style="background-color:'.$thms[$i]["primary_color"].'">
+                                <div class="thm_bck" style="background-color:'.$thms[$i]["primary_color"].'">
                                     <span class="thm_text"  style="color:'.$thms[$i]["primary_font_color"].'">'.$thms[$i]["name"].'</span>
-                                    <div class="box" style="background-color:'.$thms[$i]["secondary_color"].'">
-                                        <div class="text_box" style="color:'.$thms[$i]["primary_font_color"].';border-color:'.$thms[$i]['secondary_font_color'].'">AaaaBbbCcc</div>
-                                        <div class="text_box text_box_" style="background-color:'.$thms[$i]['secondary_font_color'].';border-color:'.$thms[$i]['secondary_font_color'].'; color:#ffffff;">AaaaBbbCcc</div>
+                                    <div class="thm_box" style="background-color:'.$thms[$i]["secondary_color"].'">
+                                        <div class="thm_text_box" style="color:'.$thms[$i]["primary_font_color"].';border-color:'.$thms[$i]['secondary_font_color'].'">AaaaBbbCcc</div>
+                                        <div class="thm_text_box thm_text_box_" style="background-color:'.$thms[$i]['secondary_font_color'].';border-color:'.$thms[$i]['secondary_font_color'].'; color:#ffffff;">AaaaBbbCcc</div>
                                     </div>
-                                    <div class="box" style="background-color:'.$thms[$i]["secondary_color"].'">
+                                    <div class="thm_box" style="background-color:'.$thms[$i]["secondary_color"].'">
                                         <span class="thm_text2"  style="color:'.$thms[$i]["secondary_font_color"].'">AaaaBbbCcc</span>
                                     </div>
                                 </div>
@@ -101,6 +98,27 @@ class TeacherView extends TeacherModel{
                         }
                         ;
                     echo'
+
+
+                    <div class="thm_view_add">
+                        <div class="thm_bck_add">
+                            
+                        </div>
+                    </div>
+                    <div class="thm_view_new">
+                        <div class="thm_bck_new">
+                            <span class="thm_text_new"></span>
+                            <div class="thm_box_new">
+                                <div class="thm_text_box_new">AaaaBbbCcc</div>
+                                <div class="thm_text_box_new text_box__new">AaaaBbbCcc</div>
+                            </div>
+                            <div class="thm_box_new"">
+                                <span class="thm_text2_new">AaaaBbbCcc</span>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <input class="theme_inp_sel" id="theme_selected" name="theme_selected" type="hidden" value="1">
                     </div>
                 </div>

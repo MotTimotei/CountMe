@@ -78,7 +78,6 @@ include "includes/header.php";
     });
 
     function selectTheme(){
-        console.log("a");
         thm_view.forEach(element => {
             element.setAttribute('selected', 'no');
         });
