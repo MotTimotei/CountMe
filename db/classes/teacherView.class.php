@@ -89,50 +89,12 @@ class TeacherView extends TeacherModel{
                         </div>
 
                     </div>
-
-
-                    <div class="new_thm_setup">
-
-                        <div class="thm_view_new">
-                            <div class="thm_bck_new">
-                                <span class="thm_text_new"><input type="text" maxlength="7" placeholder="Theme`s name"/></span>
-                                <div class="thm_box_new">
-                                    <div class="thm_text_box_new">AaaaBbbCcc</div>
-                                    <div class="thm_text_box_new thm__text_box__new">AaaaBbbCcc</div>
-                                </div>
-                                <div class="thm_box_new"">
-                                    <span class="thm_text2_new">AaaaBbbCcc</span>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="thm_nm">
-                            <label for="prim_color">Primary color</label>
-                            <input name="prim_color" id="prim_color" class="add_std_inp theme_color" type="text" maxlength="7" value="#333333" required>
-                            
-                            <label for="sec_color">Secondary color</label>
-                            <input name="sec_color" id="sec_color" class="add_std_inp theme_color" type="text" maxlength="7" value="#434343" required>
-                        
-                            <label for="thrd_color">Third color</label>
-                            <input name="thrd_color" id="thrd_color" class="add_std_inp theme_color" type="text" maxlength="7" value="#0077ff" required>
-                        
-                            <label for="prim_font">Primary font</label>
-                            <input name="prim_font" id="prim_font" class="add_std_inp theme_color" type="text" maxlength="7" value="#b5b5b5" required>
-                        
-                            <label for="sec_font">Secondary font</label>
-                            <input name="sec_font" id="sec_font" class="add_std_inp theme_color" type="text" maxlength="7" value="#57b957" required>
-                        
-                        </div>
-
-
-                    
-                    </div>
                 </div>
             </div>
-            
-            <button name="add_std_btn" type="submit">Sign Up</button>
-            <button class="add_std_cls" type="button">Discard</button>
+            <div class="bott_set_dec">
+                <button class="add_std_btn_stngs" name="add_std_btn_sett" type="submit">Save</button>
+                <button class="add_std_cls" type="button">Discard</button>
+            </div>
             ';
         }
     }

@@ -17,3 +17,4 @@ class Theme{
       && !isNaN(Number('0x' + this.hexa()))
   }
 }
+

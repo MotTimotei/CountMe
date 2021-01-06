@@ -21,9 +21,9 @@
 
 .std_prgLngs_btn{position:absolute;top:50%;left:50%;transform: translate(-50%, -50%);transition: .3s;}
 .std_prgLngs_btn__{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);transition: .3s;}
-.std_prgLngs_btn::before, .std_prgLngs_btn__::before{color:var(--color-text);font-size: 1.4em;}
+[class*="std_prgLngs_btn"]::before{color:var(--color-text);font-size: 1.4em;}
 .std_prgLngs_btn::before{content:'\271A';}
-.std_prgLngs_btn__::before{content:'\2714';}
+[class*="std_prgLngs_btn__"]::before{content:'\2714';}
 
 .std_prgLngs_2, .std_prgLngs_3{height:330px;padding:30px 10px;}
 .std_prgLngs_3{height:700px;}
