@@ -157,3 +157,7 @@ function removeClass(){
 
 }
 
+function refreshClasses(){
+    let a = document.querySelector('.std_prgLngs');
+}
+

@@ -2,12 +2,14 @@ function addClass(a, b, c, d){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
         if (this.readyState == 4 && this.status == 200) {
-          console.log(this.responseText);
+          console.log('id='+a+'&name='+b+'&time='+c+'&cost='+d);
         }
     };
+    
     xhttp.open("POST", "db/addClass.ajax.php");
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhttp.send('id='+a+'&name='+b+'&time='+c+'&cost='+d);
+    xhttp.send('id='+a+'&name='+encodeURIComponent(b)+'&time='+c+'&cost='+d);
+
 }
 
 function displayAllClasses(a){

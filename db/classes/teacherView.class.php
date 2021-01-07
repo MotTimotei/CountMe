@@ -3,6 +3,11 @@
 class TeacherView extends TeacherModel{
 
 
+    public function returnTeacher($id){
+        $result = $this->getTeacher($id);
+        return $result;
+    }
+
     public function showTeacher($id){
         $result = $this->getTeacher($id);
         $thms = $this->getAllThemes($id);
@@ -55,7 +60,7 @@ class TeacherView extends TeacherModel{
                             echo ' 
                             <div class="thm_view" selected="'.$selected.'" theme_id="'.$thms[$i]["id"].'">
                                 <div class="thm_bck" style="background-color:'.$thms[$i]["primary_color"].'">
-                                    <span class="thm_text"  style="color:'.$thms[$i]["primary_font_color"].'">'.$thms[$i]["name"].'</span>
+                                    <span class="thm_text"  style="color:'.$thms[$i]["primary_font_color"].'">'.$thms[$i]["name_"].'</span>
                                     <div class="thm_box" style="background-color:'.$thms[$i]["secondary_color"].'">
                                         <div class="thm_text_box" style="color:'.$thms[$i]["primary_font_color"].';border-color:'.$thms[$i]['secondary_font_color'].'">AaaaBbbCcc</div>
                                         <div class="thm_text_box thm__text_box_" style="background-color:'.$thms[$i]['secondary_font_color'].';border-color:'.$thms[$i]['secondary_font_color'].'; color:#ffffff;">AaaaBbbCcc</div>
@@ -96,7 +101,7 @@ class TeacherView extends TeacherModel{
         if($teacher && $settings && $thm){
             echo
             '
-            html[data-theme="'.$thm["name"].'"]{
+            html[data-theme="'.$thm["name_"].'"]{
                 --bg:'.$thm["primary_color"].';
                 --bg-panel:'.$thm["secondary_color"].';
                 --color-heading:'.$thm["third_color"].';
@@ -111,7 +116,7 @@ class TeacherView extends TeacherModel{
         $teacher = $this->getTeacher($id);
         $settings = $this->getSettings($teacher["id"]);
         $thm = $this->getTheme($settings["themes_id"]);
-        return $thm["name"]; 
+        return $thm["name_"]; 
     }
 
     public function returnSettings($id){
@@ -125,10 +130,20 @@ class TeacherView extends TeacherModel{
         if($classes){
             foreach($classes as $class){
                 echo '
-                <span owned="yes" class="std_prgLngs">'.$class["name"].'<span class="std_prgLngs_cls" > <input type="hidden" value="'.$class["id"].'"></span></span>
+                <span owned="yes" class="std_prgLngs">'.$class["name_"].'<span class="std_prgLngs_cls" > <input type="hidden" value="'.$class["id"].'"></span></span>
                 ';
             } 
         }
+    }
+
+    public function showAllClassesFromAllTeachers(){
+        $classes = $this->getAllClassesFromAllTeachers();
+        return $classes;
+    }
+
+    public function showClassLike($name){
+        $class = $this->getClassLike($name);
+        return $class;
     }
 
 }

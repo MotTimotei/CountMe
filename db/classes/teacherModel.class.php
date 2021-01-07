@@ -56,6 +56,24 @@ class TeacherModel extends Db{
         return $result;
     }
 
+    protected function getAllClassesFromAllTeachers(){
+        $sql = "SELECT * FROM teacher_class";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+    protected function getClassLike($name){
+        $sql = "SELECT * FROM teacher_class WHERE name_ like '%$name%'";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$name]);
+
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
     protected function setTeacher($first_name, $last_name, $gender, $phone, $email){
         $sql = "INSERT INTO teacher (first_name, last_name, gender, phone, email)
                 VALUES (?, ?, ?, ?, ?);";
@@ -70,7 +88,7 @@ class TeacherModel extends Db{
     }
 
     protected function setClass($teacher_id, $name, $session_time, $hour_cost){
-        $sql ="INSERT INTO teacher_class (teacher_id, name, session_time, hour_cost)
+        $sql ="INSERT INTO teacher_class (teacher_id, name_, session_time, hour_cost)
                 VALUES (?, ?, ?, ?);";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$teacher_id, $name, $session_time, $hour_cost]);

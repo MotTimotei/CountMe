@@ -44,4 +44,9 @@ class StudentsView extends StudentsModel{
             ';
         }
     }
+
+    public function returnAnyStudenInfo($table, $colunmn, $cuv, $column2, $cuv2){
+        $results = $this->getAnyStudentInfo($table, $colunmn, $cuv, $column2, $cuv2);
+        return $results;
+    }
 }

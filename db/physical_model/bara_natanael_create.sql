@@ -45,7 +45,7 @@ CREATE TABLE student_class (
 CREATE TABLE teacher_class(
     id int NOT NULL AUTO_INCREMENT,
     teacher_id int NOT NULL,
-    name varchar(100) NOT NULL,
+    name_ varchar(100) NOT NULL,
     session_time int NOT NULL,
     hour_cost int NOT NULL,
     date_time timestamp NOT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE teacher_settings (
 CREATE TABLE themes (
     id int NOT NULL AUTO_INCREMENT,
     teacher_id int NOT NULL,
-    name varchar(30) NOT NULL,
+    name_ varchar(30) NOT NULL,
     primary_color varchar(7) NOT NULL,
     secondary_color varchar(7) NOT NULL,
     third_color varchar(7) NOT NULL,
@@ -130,13 +130,13 @@ INSERT INTO teacher (first_name, last_name, gender, phone, email)
 VALUES ('Natanael', 'Bara', 'M', '0745632777', 'baraNatanael@gmail.com');
 
 -- Inserting values to table: themes
-INSERT INTO themes (teacher_id, name, primary_color, secondary_color, third_color, primary_font_color, secondary_font_color)
+INSERT INTO themes (teacher_id, name_, primary_color, secondary_color, third_color, primary_font_color, secondary_font_color)
 VALUES ('1', 'light', '#FCFCFC', '#EBEBEB', '#0077ff', '#333333', '#57b957');
 
-INSERT INTO themes (teacher_id, name, primary_color, secondary_color, third_color, primary_font_color, secondary_font_color)
+INSERT INTO themes (teacher_id, name_, primary_color, secondary_color, third_color, primary_font_color, secondary_font_color)
 VALUES ('1', 'dark', '#333333', '#434343', '#0077ff', '#b5b5b5', '#57b957');
 
-INSERT INTO themes (teacher_id, name, primary_color, secondary_color, third_color, primary_font_color, secondary_font_color)
+INSERT INTO themes (teacher_id, name_, primary_color, secondary_color, third_color, primary_font_color, secondary_font_color)
 VALUES ('1', 'old_school', '#2D3047', '#048A81', '#A799B7', '#93B7BE', '#E0CA3C');
 
 -- Inserting values to table: teacher_settings

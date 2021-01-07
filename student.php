@@ -42,12 +42,6 @@ if(!$result) returnIndex();
         <select class="getStudents__" name="getStudents">
 
         </select>
-        <script src="js/ajax_first.js"></script>
-        <script>
-        document.querySelector('.getStudents').addEventListener('change', function(){
-            showCustomer(this.value);
-        });
-        </script>
 
         <label for="session_time">Session time</label>
         <select class="asd" name="session_time" id="">
@@ -101,7 +95,7 @@ if(!$result) returnIndex();
             <input name="email" id="email" type="email" class="add_std_inp" value="<?php echo $result["email"] ?>" required>
             
             <div class="sec_info">            
-                <h3>Programming Languages</h3>
+                <h3>Classes</h3>
                 <span owned="yes" class="std_prgLngs">Java<span class="std_prgLngs_cls"><img src="img/close.svg" class="std_prgLngs_cls_img" alt=""></span></span>
                 <span owned="yes" class="std_prgLngs">JavaScript<span class="std_prgLngs_cls"></span></span>
                 <span owned="yes" class="std_prgLngs">Python<span class="std_prgLngs_cls"></span></span>
@@ -114,17 +108,13 @@ if(!$result) returnIndex();
 
                 <div class="std_prgLngs std_prgLngs_ std_prgLngs_2">
                     <button type="button" class="std_prgLngs_btn std_prgLngs_btn2" assignment="add_close"></button>
-                    <div class="add_classes_div settings_scrBar2">
-                        <ul class="add_classes_ul">
-                            <li class="add_classes_li"><span class="add_classes_li_class">Classes</span><span class="add_classes_li_teacher">Teacher</span></li>
-                            <li class="add_classes_li"><span owned="no" class="std_prgLngs">HTML<span class="std_prgLngs_cls"></span></span> <span class="add_classes_li_teacher">Bara Natanael</span></li>
-                            <li class="add_classes_li"><span owned="no" class="std_prgLngs">HTML<span class="std_prgLngs_cls"></span></span> <span class="add_classes_li_teacher">Bara Natanael</span></li>
-                            <li class="add_classes_li"><span owned="no" class="std_prgLngs">HTML<span class="std_prgLngs_cls"></span></span> <span class="add_classes_li_teacher">Bara Natanael</span></li>
-                            <li class="add_classes_li"><span owned="no" class="std_prgLngs">HTML<span class="std_prgLngs_cls"></span></span> <span class="add_classes_li_teacher">Bara Natanael</span></li>
-                            <li class="add_classes_li"><span owned="no" class="std_prgLngs">HTML<span class="std_prgLngs_cls"></span></span> <span class="add_classes_li_teacher">Bara Natanael</span></li>
-                            <li class="add_classes_li"><span owned="no" class="std_prgLngs">HTML<span class="std_prgLngs_cls"></span></span> <span class="add_classes_li_teacher">Bara Natanael</span></li>
-                            <li class="add_classes_li"><span owned="no" class="std_prgLngs">HTML<span class="std_prgLngs_cls"></span></span> <span class="add_classes_li_teacher">Bara Natanael</span></li>
-                        </ul>
+                    <div class="add_classes_div ">
+                        <label for="search_class">Add class</label>
+                        <input name="prg_search_class" id="search_class" type="text" class="add_std_inp">
+
+                        <div class="class_answ settings_scrBar2">
+                            <span class="class_answ_msg">Search for a class not listed above</span>
+                        </div>
                     </div>
                 </div>
 
@@ -136,6 +126,9 @@ if(!$result) returnIndex();
             </div>
         </form>
     </div>
+    <script src="js/ajax_first.js"></script>
+    <script src="js/studentSettings.js"></script>
+
     <script>
         let a = document.querySelector('.add_std');
         let b = document.querySelector('.add_std_btn');
