@@ -39,8 +39,8 @@ include "includes/header.php";
 </div>
 
 
-<div class="add_std">
-    <div class="sec_info add_std_">
+<div class="add_std ">
+    <div class="sec_info add_std_ settings_scrBar">
         <h1 class="addd_std_hdr">Settings</h1>
         <form action="db/updateTeacherSettings.php" method="POST" enctype="multipart/form-data">
             <?php $teacherObj->showTeacher("1");?>
@@ -49,26 +49,7 @@ include "includes/header.php";
     <script src="js/popUpPanel.js"></script>
 </div>
 
-<script src="js/addTheme.js"></script>
-<script>
-    d = document.querySelectorAll('.theme_color');
-
-    d.forEach(element => {
-        element.addEventListener('keyup', check);
-    });
-
-    function check(){
-        document.querySelector('.bck').style="background-color:"+ d[0].value;
-        document.querySelector('.thm_text').style="color:"+d[3].value;
-        document.querySelectorAll('.box').forEach(element =>element.style="background-color:"+ d[1].value +";");
-        document.querySelector('.text_box').style="background-color: transparent;border:1px solid "+d[4].value+"; color:"+d[3].value;
-        document.querySelector('.text_box_').style="background-color:"+ d[4].value +";border:1px solid "+d[4].value+"; color:"+d[3].value;
-
-        let col = new Theme(this.value);
-
-        this.classList = (!col.isHexColor())?"theme_color add_std_inp_sh" : "theme_color";
-    }
-</script>
+<script src="js/theme.class.js"></script>
 <script>
     let thm_view = document.querySelectorAll('.thm_view');
     let theme_inp_sel = document.querySelector('.theme_inp_sel');
@@ -85,7 +66,8 @@ include "includes/header.php";
     theme_inp_sel.setAttribute('value', this.getAttribute('theme_id'));
     }
 </script>
-<script src="js/settingsProgrammingLanguages.js"></script>
+<script src="js/ajax/addClass.ajax.js"></script>
+<script src="js/settingsClasses.js"></script>
 <script src="js/settingsThemes.js"></script>
 <?php
 include 'includes/footer.php';

@@ -2,7 +2,7 @@ let thm_view_add = document.querySelector('.thm_view_add');
 let thm_bck_add = document.querySelector('.thm_bck_add');
 let btn_theme_add = document.querySelector('.btn_theme_add');
 let inner = '<span class="thm_text_new">Theme`s name</span><div class="thm_box_new"><div class="thm_text_box_new">AaaaBbbCcc</div><div class="thm_text_box_new thm__text_box__new">AaaaBbbCcc</div></div><div class="thm_box_new""><span class="thm_text2_new">AaaaBbbCcc</span></div>';
-let inner2 = '<div class="thm_nm"><label for="prim_color">Primary color</label><input name="prim_color" id="prim_color" class="add_std_inp theme_color" type="text" maxlength="7" value="#333333" required><label for="sec_color">Secondary color</label><input name="sec_color" id="sec_color" class="add_std_inp theme_color" type="text" maxlength="7" value="#434343" required><label for="thrd_color">Third color</label><input name="thrd_color" id="thrd_color" class="add_std_inp theme_color" type="text" maxlength="7" value="#0077ff" required><label for="prim_font">Primary font</label><input name="prim_font" id="prim_font" class="add_std_inp theme_color" type="text" maxlength="7" value="#b5b5b5" required><label for="sec_font">Secondary font</label><input name="sec_font" id="sec_font" class="add_std_inp theme_color" type="text" maxlength="7" value="#57b957" required></div>'
+let inner2 = '<div class="thm_nm"><label for="theme_name">Primary color</label><input name="theme_name" id="theme_name" class="add_std_inp theme_name theme_inp_to_add" type="text" maxlength="30" placeholder="Theme`s name" required><label for="prim_color">Primary color</label><input name="prim_color" id="prim_color" class="add_std_inp theme_color theme_inp_to_add" type="text" maxlength="7" placeholder="#333333" required><label for="sec_color">Secondary color</label><input name="sec_color" id="sec_color" class="add_std_inp theme_color theme_inp_to_add" type="text" maxlength="7" placeholder="#434343" required><label for="thrd_color">Third color</label><input name="thrd_color" id="thrd_color" class="add_std_inp theme_color theme_inp_to_add" type="text" maxlength="7" placeholder="#0077ff" required><label for="prim_font">Primary font</label><input name="prim_font" id="prim_font" class="add_std_inp theme_color theme_inp_to_add" type="text" maxlength="7" placeholder="#b5b5b5" required><label for="sec_font">Secondary font</label><input name="sec_font" id="sec_font" class="add_std_inp theme_color theme_inp_to_add" type="text" maxlength="7" placeholder="#57b957" required></div>'
 let inner3 = '<div class="thm_bck"><span class="thm_text"></span><div class="thm_box"><div class="thm_text_box">AaaaBbbCcc</div><div class="thm_text_box thm__text_box_">AaaaBbbCcc</div></div><div class="thm_box""><span class="thm_text2">AaaaBbbCcc</span></div></div>';
 
 let themes_stngs = document.querySelector('.themes_stngs');
@@ -66,13 +66,20 @@ function asd(a, b, c, d, e, f, g){
     }
 
     function validateColors(){
-        let theme = new Theme();
         document.querySelectorAll('.theme_color').forEach(elem => {
             elem.addEventListener('keyup', function(){
-                theme.value = elem.value;
-                (!theme.isHexColor()) ? kill() : validate() ;
+                console.log(getInpValues(document.querySelectorAll('.theme_color')));
+                (!getInpValues(document.querySelectorAll('.theme_color'))) ? kill() : validate() ;
             });
         });
+
+        let getInpValues = (a) =>{
+            let theme = new Theme();
+            a.forEach(elem => {
+                theme.value = elem.value;
+                if(!theme.isHexColor()) {return false};
+            }); return true;
+        }
 
         let validate = () =>{
             if(!document.querySelector('.std_prgLngs_btn___')){

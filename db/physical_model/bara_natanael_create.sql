@@ -6,19 +6,10 @@
 CREATE DATABASE bara_natanael;
 
 -- tables
--- Table: programming_language
-CREATE TABLE programming_language (
-    id int NOT NULL AUTO_INCREMENT,
-    name int NOT NULL,
-    hour_cost int NOT NULL,
-    date_time timestamp NOT NULL,
-    CONSTRAINT programming_language_pk PRIMARY KEY (id)
-);
-
 -- Table: sessions
 CREATE TABLE sessions (
     id int NOT NULL AUTO_INCREMENT,
-    students_programming_languages_teacher_id int NOT NULL,
+    student_class_id int NOT NULL,
     session_time int NOT NULL,
     price_hour int NOT NULL,
     paid int NOT NULL,
@@ -42,12 +33,23 @@ CREATE TABLE students (
     CONSTRAINT students_pk PRIMARY KEY (id)
 );
 
--- Table: students_programming_languages
-CREATE TABLE students_programming_languages (
+-- Table: student_class
+CREATE TABLE student_class (
     id int NOT NULL AUTO_INCREMENT,
     students_id int NOT NULL,
-    programming_language_id int NOT NULL,
-    CONSTRAINT students_programming_languages_pk PRIMARY KEY (id)
+    teacher_class_id int NOT NULL,
+    CONSTRAINT student_class_pk PRIMARY KEY (id)
+);
+
+-- Table: teacher_class
+CREATE TABLE teacher_class(
+    id int NOT NULL AUTO_INCREMENT,
+    teacher_id int NOT NULL,
+    name varchar(100) NOT NULL,
+    session_time int NOT NULL,
+    hour_cost int NOT NULL,
+    date_time timestamp NOT NULL,
+    CONSTRAINT teacher_class_pk PRIMARY KEY (id)
 );
 
 -- Table: teacher
@@ -63,14 +65,6 @@ CREATE TABLE teacher (
     CONSTRAINT teacher_pk PRIMARY KEY (id)
 );
 
--- Table: teacher_programming_languages
-CREATE TABLE teacher_programming_languages (
-    id int NOT NULL AUTO_INCREMENT,
-    programming_language_id int NOT NULL,
-    teacher_id int NOT NULL,
-    CONSTRAINT teacher_programming_languages_pk PRIMARY KEY (id)
-);
-
 -- Table: teacher_settings
 CREATE TABLE teacher_settings (
     id int NOT NULL AUTO_INCREMENT,
@@ -80,19 +74,11 @@ CREATE TABLE teacher_settings (
     CONSTRAINT teacher_settings_pk PRIMARY KEY (id)
 );
 
--- Table: teacher_student
-CREATE TABLE teacher_student (
-    id int NOT NULL AUTO_INCREMENT,
-    teacher_programming_languages_id int NOT NULL,
-    students_programming_languages_id int NOT NULL,
-    CONSTRAINT teacher_student_pk PRIMARY KEY (id)
-);
-
 -- Table: themes
 CREATE TABLE themes (
     id int NOT NULL AUTO_INCREMENT,
     teacher_id int NOT NULL,
-    name varchar(100) NOT NULL,
+    name varchar(30) NOT NULL,
     primary_color varchar(7) NOT NULL,
     secondary_color varchar(7) NOT NULL,
     third_color varchar(7) NOT NULL,
@@ -107,45 +93,34 @@ CREATE TABLE themes (
 );
 
 -- foreign keys
--- Reference: sessions_students_programming_languages_teacher (table: sessions)
-ALTER TABLE sessions ADD CONSTRAINT sessions_students_programming_languages_teacher FOREIGN KEY sessions_students_programming_languages_teacher (students_programming_languages_teacher_id)
-    REFERENCES students_programming_languages (id);
+-- Reference: sessions_student_class (table: sessions)
+ALTER TABLE sessions ADD CONSTRAINT sessions_student_class FOREIGN KEY sessions_student_class (student_class_id)
+    REFERENCES student_class (id);
 
--- Reference: students_programming_languages_programming_language (table: students_programming_languages)
-ALTER TABLE students_programming_languages ADD CONSTRAINT students_programming_languages_programming_language FOREIGN KEY students_programming_languages_programming_language (programming_language_id)
-    REFERENCES programming_language (id);
+-- Reference: student_class_teacher_class(table: student_class)
+ALTER TABLE student_class ADD CONSTRAINT student_class_teacher_class FOREIGN KEY student_class_teacher_class(teacher_class_id)
+    REFERENCES teacher_class(id);
 
--- Reference: students_programming_languages_students (table: students_programming_languages)
-ALTER TABLE students_programming_languages ADD CONSTRAINT students_programming_languages_students FOREIGN KEY students_programming_languages_students (students_id)
+-- Reference: student_class_students (table: student_class)
+ALTER TABLE student_class ADD CONSTRAINT student_class_students FOREIGN KEY student_class_students (students_id)
     REFERENCES students (id);
 
--- Reference: teacher_programming_language_programming_language (table: teacher_programming_languages)
-ALTER TABLE teacher_programming_languages ADD CONSTRAINT teacher_programming_language_programming_language FOREIGN KEY teacher_programming_language_programming_language (programming_language_id)
-    REFERENCES programming_language (id);
+-- Reference: teacher_class_teacher (table: teacher_class)
+ALTER TABLE teacher_class ADD CONSTRAINT teacher_class_teacher FOREIGN KEY teacher_class_teacher (teacher_id)
+    REFERENCES teacher (id);
 
--- Reference: teacher_programming_language_teacher (table: teacher_programming_languages)
-ALTER TABLE teacher_programming_languages ADD CONSTRAINT teacher_programming_language_teacher FOREIGN KEY teacher_programming_language_teacher (teacher_id)
+-- Reference: teacher_settings_teacher (table: teacher_settings)
+ALTER TABLE teacher_settings ADD CONSTRAINT teacher_settings_teacher FOREIGN KEY teacher_settings_teacher (teacher_id)
     REFERENCES teacher (id);
 
 -- Reference: teacher_settings_themes (table: teacher_settings)
 ALTER TABLE teacher_settings ADD CONSTRAINT teacher_settings_themes FOREIGN KEY teacher_settings_themes (themes_id)
     REFERENCES themes (id);
 
--- Reference: teacher_student_students_programming_languages (table: teacher_student)
-ALTER TABLE teacher_student ADD CONSTRAINT teacher_student_students_programming_languages FOREIGN KEY teacher_student_students_programming_languages (students_programming_languages_id)
-    REFERENCES students_programming_languages (id);
-
--- Reference: teacher_student_teacher_programming_language (table: teacher_student)
-ALTER TABLE teacher_student ADD CONSTRAINT teacher_student_teacher_programming_language FOREIGN KEY teacher_student_teacher_programming_language (teacher_programming_languages_id)
-    REFERENCES teacher_programming_languages (id);
-
--- Reference: teacher_settings_teacher (table: teacher_settings)
-ALTER TABLE teacher_settings ADD CONSTRAINT teacher_settings_teacher FOREIGN KEY teacher_settings_teacher (teacher_id)
-    REFERENCES teacher (id);
-
 -- Reference: themes_teacher (table: themes)
 ALTER TABLE themes ADD CONSTRAINT themes_teacher FOREIGN KEY themes_teacher (teacher_id)
     REFERENCES teacher (id);
+
 
 
 

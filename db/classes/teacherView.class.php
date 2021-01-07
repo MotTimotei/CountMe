@@ -32,26 +32,15 @@ class TeacherView extends TeacherModel{
             <div class="pr_ln">  
                 <div class="pr_ln__">  
                     <div class="sec_info classes">         
-                    
                         <h3>Classes</h3>
-                        <span owned="yes" class="std_prgLngs">
-                            Java
-                            <span class="std_prgLngs_cls">
-                                <img src="img/close.svg" class="std_prgLngs_cls_img" alt="">
-                            </span>
-                        </span>
-                        <span owned="yes" class="std_prgLngs">JavaScript<span class="std_prgLngs_cls"></span></span>
-                        <span owned="yes" class="std_prgLngs">Python<span class="std_prgLngs_cls"></span></span>
-                        <span owned="yes" class="std_prgLngs">C#<span class="std_prgLngs_cls"></span></span>
-                        <span owned="yes" class="std_prgLngs">C++<span class="std_prgLngs_cls"></span></span>
+                        <div class="showclasses">';
+                        $this->showClasses("1");
+                        echo'</div>
                     </div>
                 </div>
-
                 <div class="std_prgLngs std_prgLngs_">
                     <button type="button" class="std_prgLngs_btn" assignment="add_close"></button>
                 </div>
-
-                
             </div>
 
             <div class="sec_info">
@@ -80,7 +69,7 @@ class TeacherView extends TeacherModel{
                         }
                         ;
                     echo'
-                        <input class="theme_inp_sel" id="theme_selected" name="theme_selected" type="hidden" value="1">
+                        <input class="theme_inp_sel" id="theme_selected" name="theme_selected" type="hidden">
                         
                         <div class="thm_view_add">
                             <div class="thm_bck_add">
@@ -129,6 +118,17 @@ class TeacherView extends TeacherModel{
         $teacher = $this->getTeacher($id);
         $settings = $this->getSettings($teacher["id"]);
         return $settings["id"]; 
+    }
+
+    public function showClasses($id){
+        $classes = $this->getAllClasses($id);
+        if($classes){
+            foreach($classes as $class){
+                echo '
+                <span owned="yes" class="std_prgLngs">'.$class["name"].'<span class="std_prgLngs_cls" > <input type="hidden" value="'.$class["id"].'"></span></span>
+                ';
+            } 
+        }
     }
 
 }

@@ -8,6 +8,8 @@ if(!$_GET['id']) returnIndex();
 $student = new GetStudent();
 $result = $student->showStudent( $_GET["id"]);
 
+$studentss = new StudentsView();
+
 if(!$result) returnIndex();
 
 ?>
@@ -31,17 +33,24 @@ if(!$result) returnIndex();
     
     <div class="add_session">
 
+
+
+
+        <?php echo $studentss->showAllStudents();?>
+
         <label for="choose_prg_lng">Language</label>
-        <select name="choose_prg_lng" id="">
-            <option value="">PHP</option>
-            <option value="">C#</option>
-            <option value="">Java</option>
-            <option value="">JavaScript</option>
-            <option value="">C++</option>
+        <select class="getStudents__" name="getStudents">
+
         </select>
+        <script src="js/ajax_first.js"></script>
+        <script>
+        document.querySelector('.getStudents').addEventListener('change', function(){
+            showCustomer(this.value);
+        });
+        </script>
 
         <label for="session_time">Session time</label>
-        <select name="session_time" id="">
+        <select class="asd" name="session_time" id="">
             <option value="">1 hr</option>
             <option value="">2 hr</option>
             <option value="">3 hr</option>
@@ -70,7 +79,7 @@ if(!$result) returnIndex();
 </div>
 
 <div class="add_std">
-    <div class="add_std_">
+    <div class="add_std_ settings_scrBar">
         <form action="db/studentSettings.php" method="GET" enctype="multipart/form-data">
             <h2 class="addd_std_hdr">Get started to add ...</h2>
             <label for="first_name">First name</label>
@@ -93,12 +102,7 @@ if(!$result) returnIndex();
             
             <div class="sec_info">            
                 <h3>Programming Languages</h3>
-                <span owned="yes" class="std_prgLngs">
-                    Java
-                    <span class="std_prgLngs_cls">
-                        <img src="img/close.svg" class="std_prgLngs_cls_img" alt="">
-                    </span>
-                </span>
+                <span owned="yes" class="std_prgLngs">Java<span class="std_prgLngs_cls"><img src="img/close.svg" class="std_prgLngs_cls_img" alt=""></span></span>
                 <span owned="yes" class="std_prgLngs">JavaScript<span class="std_prgLngs_cls"></span></span>
                 <span owned="yes" class="std_prgLngs">Python<span class="std_prgLngs_cls"></span></span>
                 <span owned="yes" class="std_prgLngs">C#<span class="std_prgLngs_cls"></span></span>
@@ -107,8 +111,22 @@ if(!$result) returnIndex();
 
                 <span owned="selected" class="std_prgLngs">PHP<span class="std_prgLngs_cls"></span></span>
 
-                <span owned="no" class="std_prgLngs">HTML<span class="std_prgLngs_cls"></span></span>
 
+                <div class="std_prgLngs std_prgLngs_ std_prgLngs_2">
+                    <button type="button" class="std_prgLngs_btn std_prgLngs_btn2" assignment="add_close"></button>
+                    <div class="add_classes_div settings_scrBar2">
+                        <ul class="add_classes_ul">
+                            <li class="add_classes_li"><span class="add_classes_li_class">Classes</span><span class="add_classes_li_teacher">Teacher</span></li>
+                            <li class="add_classes_li"><span owned="no" class="std_prgLngs">HTML<span class="std_prgLngs_cls"></span></span> <span class="add_classes_li_teacher">Bara Natanael</span></li>
+                            <li class="add_classes_li"><span owned="no" class="std_prgLngs">HTML<span class="std_prgLngs_cls"></span></span> <span class="add_classes_li_teacher">Bara Natanael</span></li>
+                            <li class="add_classes_li"><span owned="no" class="std_prgLngs">HTML<span class="std_prgLngs_cls"></span></span> <span class="add_classes_li_teacher">Bara Natanael</span></li>
+                            <li class="add_classes_li"><span owned="no" class="std_prgLngs">HTML<span class="std_prgLngs_cls"></span></span> <span class="add_classes_li_teacher">Bara Natanael</span></li>
+                            <li class="add_classes_li"><span owned="no" class="std_prgLngs">HTML<span class="std_prgLngs_cls"></span></span> <span class="add_classes_li_teacher">Bara Natanael</span></li>
+                            <li class="add_classes_li"><span owned="no" class="std_prgLngs">HTML<span class="std_prgLngs_cls"></span></span> <span class="add_classes_li_teacher">Bara Natanael</span></li>
+                            <li class="add_classes_li"><span owned="no" class="std_prgLngs">HTML<span class="std_prgLngs_cls"></span></span> <span class="add_classes_li_teacher">Bara Natanael</span></li>
+                        </ul>
+                    </div>
+                </div>
 
             </div>
             

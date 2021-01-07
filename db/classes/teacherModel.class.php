@@ -19,19 +19,6 @@ class TeacherModel extends Db{
         return $results;
     }
 
-    protected function setTeacher($first_name, $last_name, $gender, $phone, $email){
-        $sql = "INSERT INTO teacher (first_name, last_name, gender, phone, email)
-                VALUES (?, ?, ?, ?, ?);";
-        $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([$first_name, $last_name, $gender, $phone, $email]);
-    }
-
-    protected function setUpdateTeacher($table_name, $collumn, $value, $id){
-        $sql = "UPDATE $table_name SET $collumn = $value WHERE $id";
-        $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([$value]);
-    }
-
     protected function getSettings($id){
         $sql = "SELECT * FROM teacher_settings WHERE teacher_id = ?";
         $stmt = $this->connect()->prepare($sql);
@@ -58,5 +45,40 @@ class TeacherModel extends Db{
 
         $result = $stmt->fetch();
         return $result;
+    }
+
+    protected function getAllClasses($id){
+        $sql = "SELECT * FROM teacher_class WHERE teacher_id = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$id]);
+
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+    protected function setTeacher($first_name, $last_name, $gender, $phone, $email){
+        $sql = "INSERT INTO teacher (first_name, last_name, gender, phone, email)
+                VALUES (?, ?, ?, ?, ?);";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$first_name, $last_name, $gender, $phone, $email]);
+    }
+
+    protected function setUpdateTeacher($table_name, $collumn, $value, $id){
+        $sql = "UPDATE $table_name SET $collumn = $value WHERE $id";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$value]);
+    }
+
+    protected function setClass($teacher_id, $name, $session_time, $hour_cost){
+        $sql ="INSERT INTO teacher_class (teacher_id, name, session_time, hour_cost)
+                VALUES (?, ?, ?, ?);";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$teacher_id, $name, $session_time, $hour_cost]);
+    }
+
+    protected function deleteClass($id){
+        $sql = "DELETE FROM teacher_class WHERE id=?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$id]);
     }
 }
