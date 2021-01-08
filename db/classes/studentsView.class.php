@@ -49,4 +49,9 @@ class StudentsView extends StudentsModel{
         $results = $this->getAnyStudentInfo($table, $colunmn, $cuv, $column2, $cuv2);
         return $results;
     }
+
+    public function returnStudentClassID($students_id, $teacher_class_id){
+        return $this->getStudentClassID($students_id, $teacher_class_id);
+    }
+
 }

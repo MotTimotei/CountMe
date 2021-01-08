@@ -9,6 +9,11 @@ class StudentsController extends StudentsModel{
     public function createStudentClass($student_id, $teacher_class_id){
         $this->setStudentClass($student_id, $teacher_class_id);
     }
+
+    public function removeStudentClass($id){
+        $this->deleteStudentClass($id);
+
+    }
 }
 
 ?>

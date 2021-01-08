@@ -14,8 +14,9 @@ function addToLibrary (a){
 }
 
 function removeFromLibrary (a){
+    console.log('1');
     let cl = a.childNodes[1].childNodes[1].value
-    addClassToLibrary(id_ul, cl)
+    removeClassFromLibrary(id_ul, cl)
     displayAvailableClasses(cls.value, id_ul)
 }
 
@@ -23,8 +24,8 @@ function removeFromLibrary (a){
 
 
 function displayAvailableClasses(cls, id_ul) {
+    const f = 'displayAvailableClasses';
     console.log(id_ul)
-    let f = 'displayAvailableClasses';
     if(cls == ''){
         document.querySelector('.class_answ').innerHTML = '<span class="class_answ_msg">Search for a class you don`t have</span>';
         return;
@@ -36,12 +37,12 @@ function displayAvailableClasses(cls, id_ul) {
         document.querySelector('.class_answ').innerHTML = this.responseText;
       }
     };
-    xhttp.open("GET", "db/student.GET.ajax.php?func="+f+"&class="+encodeURIComponent(cls)+"&student="+encodeURIComponent(id_ul), true);
+    xhttp.open("GET", 'db/ajax.php/student.GET.ajax.php?func='+f+'&class='+encodeURIComponent(cls)+'&student='+encodeURIComponent(id_ul), true);
     xhttp.send();
   }
 
 function addClassToLibrary(std_id, cls_id){
-    const f = 'displayAvailableClasses';
+    const f = 'addClassToLibrary';
     let xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -49,14 +50,14 @@ function addClassToLibrary(std_id, cls_id){
         }
     };
     
-    xhttp.open("POST", "db/student.POST.ajax.php");
+    xhttp.open("POST", "db/ajax.php/student.POST.ajax.php");
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhttp.send('student_id='+std_id+'&teacher_class_id='+cls_id);
+    xhttp.send('func='+f+'&student_id='+std_id+'&teacher_class_id='+cls_id);
 
 }
 
 function removeClassFromLibrary(std_id, cls_id){
-    const f = 'displayAvailableClasses';
+    const f = 'removeClassFromLibrary';
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -64,20 +65,7 @@ function removeClassFromLibrary(std_id, cls_id){
         }
     };
     
-    xhttp.open("GET", "db/student.GET.ajax.php");
-    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhttp.send('student_id='+std_id+'&teacher_class_id='+cls_id);
+    xhttp.open('GET', 'db/ajax.php/deleteStudentClass.ajax.php?func='+f+'&student_id='+std_id+'&teacher_class_id='+cls_id);
+    xhttp.send();
 
-}
-
-function removeClassDB(a){
-    let xhttp;
-    xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        console.log(this.responseText);
-      }
-    };
-    xhttp.open("GET", "db/deleteClass.ajax.php?id="+a, true);
-    xhttp.send('delete=true&id='+a);
 }

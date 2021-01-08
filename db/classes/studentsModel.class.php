@@ -29,6 +29,15 @@ class StudentsModel extends Db{
         return $results;
     }
 
+    protected function getStudentClassID($students_id, $teacher_class_id){
+        $sql = "SELECT id FROM student_class WHERE (students_id = ? AND teacher_class_id = ?)";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$students_id, $teacher_class_id]);
+
+        $results = $stmt->fetchAll();
+        return $results;
+    }
+
     protected function setStudent($first_name, $last_name, $gender, $phone, $email){
         $sql = "INSERT INTO students (first_name, last_name, gender, phone, email)
                 VALUES (?, ?, ?, ?, ?);";
@@ -42,6 +51,12 @@ class StudentsModel extends Db{
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$student_id, $teacher_class_id]);
 
+    }
+
+    protected function deleteStudentClass($id){
+        $sql = "DELETE FROM student_class WHERE id = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$id]);
     }
     
 }

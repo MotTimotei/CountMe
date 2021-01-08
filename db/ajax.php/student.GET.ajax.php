@@ -1,11 +1,11 @@
 <?php
 
-include "myAutoLoader.php";
+include "../myAutoLoader.php";
 
-$function = $_GET['func'];
+$func = $_GET['func'];
 
-//Check for functions
-if($function = "displayAvailableClasses") displayAvailableClasses();
+if($func == 'displayAvailableClasses') displayAvailableClasses();
+else if($func == 'removeClassFromLibrary')removeClassFromLibrary();
 
 function displayAvailableClasses(){
     $a = $_GET['class'];
@@ -53,10 +53,24 @@ function displayAvailableClasses(){
 }
 
 function checkForClass($cuv, $cuv2){
-//  id | teacher_id | name_ | session_time | hour_cost |
-//  id students_id | teacher_class_id
+    //  id | teacher_id | name_ | session_time | hour_cost |
+    //  id students_id | teacher_class_id
     $classStd = new StudentsView();
     return ($classStd->returnAnyStudenInfo('student_class', 'teacher_class_id', $cuv, 'students_id', $cuv2));
+
+}
+
+
+
+function removeClassFromLibrary(){
+    $a = $_GET['student_id'];
+    $b = $_GET['teacher_class_id'];
+    $results = new StudentsView();
+    $results2 = new StudentsController();
+    $classes = $results->returnStudentClassID($a, $b);
+    foreach($classes as $class){
+        $results2->removeStudentClass($class['id']);
+    }
 
 }
 
