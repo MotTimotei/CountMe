@@ -108,50 +108,42 @@ function setLanguage(){
     delElem();
 }
 
-function removeClass(){
-    let std_prgLngs = document.querySelectorAll('[owned="yes"]');
-    std_prgLngs.forEach(elem => {
-        let a = elem.children[0];
-        a.addEventListener('click', function(){
-            warning();
-            if(document.querySelector('.warning_bg')){
-            delYs(this.children[0].value);
-            delNo();}
-        })
-
-        let warning = () =>{
-            if(!document.querySelector('.warning_bg')){
+class removeClass {
+    constructor() {
+        this.remove_delete_class = () => {
+            this.warning();
+            this.delNo();
+            this.delYs();
+        }
+        this.warning = () => {
+            if (!document.querySelector('.warning_bg')) {
                 let a = document.createElement('div');
                 a.classList = 'warning_bg';
-                a.innerHTML = '<div class="warning_bg2"><span class="warning_msg_">Remove class?</span> <button class="warning_delete" delete="yes" type="button">YES</button><button class="warning_delete" delete="no" type="button">NO</button></span><input type="hidden" class=""warning_delete_input" value=""></div>'
+                a.innerHTML = '<div class="warning_bg2"><span class="warning_msg_">Remove class?</span> <button class="warning_delete" delete="yes" type="button">YES</button><button class="warning_delete" delete="no" type="button">NO</button></span><input type="hidden" class=""warning_delete_input" value=""></div>';
                 document.querySelector('.visOFF').appendChild(a);
             }
-        }
+        };
 
-        let giveUp = () =>{
-            if(document.querySelector('.warning_bg')) 
-            document.querySelector('.warning_bg').remove();
-        }
+        this.giveUp = () => {
+            if (document.querySelector('.warning_bg'))
+                document.querySelector('.warning_bg').remove();
+        };
 
-        let deleteClass = (a) =>{
+        this.deleteClass = (a) => {
             removeClassDB(a);
             giveUp();
             displayAllClasses('1');
-        }
+        };
 
-        let delYs = (a) =>{
-            document.querySelector('[delete="yes"]').addEventListener('click', function(){
+        this.delYs = (a) => {
+            document.querySelector('[delete="yes"]').addEventListener('click', function () {
                 deleteClass(a);
             });
-        }
+        };
 
-        let delNo =() =>{
+        this.delNo = () => {
             document.querySelector('[delete="no"]').addEventListener('click', giveUp);
-        }
-
-
-    });
-
-
+        };
+    }
 }
 

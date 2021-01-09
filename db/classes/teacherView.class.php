@@ -130,7 +130,7 @@ class TeacherView extends TeacherModel{
         if($classes){
             foreach($classes as $class){
                 echo '
-                <span owned="yes" class="std_prgLngs">'.$class["name_"].'<span class="std_prgLngs_cls" onclick="removeClass()"> <input type="hidden" value="'.$class["id"].'"></span></span>
+                <span owned="yes" class="std_prgLngs">'.$class["name_"].'<span class="std_prgLngs_cls" onclick="(new removeClass()).remove_delete_class()"> <input type="hidden" value="'.$class["id"].'"></span></span>
                 ';
             } 
         }
