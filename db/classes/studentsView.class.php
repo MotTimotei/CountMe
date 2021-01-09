@@ -17,32 +17,9 @@ class StudentsView extends StudentsModel{
 
     }
 
-    public function showAllStudents(){
-        $results = $this->getAllStudents();
-        if(!$results) echo 'No students yet!';
-        else {
-            echo '<select class="getStudents" name="getStudents">';
-            foreach($results as $result){
-                echo '<option value="'.$result["id"].'">'.$result["first_name"].'</option>';
-            }
-            echo '</select>';
-        }
-    }
-
-    public function showStudent($id){
-        $result = $this->getStudent($id);
-        if(!$result) echo 'Nothing to display!';
-        else {
-            echo '
-            <select>
-                <option>'.$result["first_name"].'</option>
-                <option>'.$result["last_name"].'</option>
-                <option>'.$result["gender"].'</option>
-                <option>'.$result["phone"].'</option>
-                <option>'.$result["email"].'</option>
-            </select>
-            ';
-        }
+    public function returnStudentAllClasses($id){
+        $results = $this->returnOwnedClasses($id);
+        return $results;
     }
 
     public function returnOwnedClasses($student_id){

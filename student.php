@@ -30,46 +30,13 @@ if(!$result) returnIndex();
 </div>
 <div class="sec_info organizeBox organizeBox__">
     <h2 id="">Upcoming sessions</h2>
-    
-    <div class="add_session">
-
-
-
-
-        <?php echo $studentss->showAllStudents();?>
-
-        <label for="choose_prg_lng">Language</label>
-        <select class="getStudents__" name="getStudents">
-
-        </select>
-
-        <label for="session_time">Session time</label>
-        <select class="asd" name="session_time" id="">
-            <option value="">1 hr</option>
-            <option value="">2 hr</option>
-            <option value="">3 hr</option>
-        </select>
-
-        <label for="session_hour_cost">Cost/hour</label>
-        <select name="session_hour_cost" id="">
-            <option value="">45 lei</option>
-            <option value="">50 lei</option>
-            <option value="">60 lei</option>
-        </select>
-
-        <label for="pick_date">Date</label>
-        <input id="pick_date" name="pick_date" type="date">
-
-        <label for="pick_date">Time</label>
-        <input id="pick_date" name="pick_date" type="time">
-
-        <button class="">Add Session</button>
-
-    </div>
-        
-        <div class="info_box">14 decembrie</div>
-        <div class="info_box">16 decembrie</div>
-        <div class="info_box">24 decembrie</div>
+    <button type="button "class="openAddSession" onclick="showAddSessionClass()">Open session</button>
+    <div class="add_session"></div>
+        <div class="upcoming_session">
+            <div class="info_box">14 decembrie</div>
+            <div class="info_box">16 decembrie</div>
+            <div class="info_box">24 decembrie</div>
+        </div>
 </div>
 
 <div class="add_std">

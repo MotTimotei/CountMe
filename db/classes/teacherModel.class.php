@@ -74,6 +74,15 @@ class TeacherModel extends Db{
         return $result;
     }
 
+    protected function getClass($id){
+        $sql = "SELECT * FROM teacher_class WHERE id = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$id]);
+
+        $result = $stmt->fetch();
+        return $result;
+    }
+
     protected function setTeacher($first_name, $last_name, $gender, $phone, $email){
         $sql = "INSERT INTO teacher (first_name, last_name, gender, phone, email)
                 VALUES (?, ?, ?, ?, ?);";

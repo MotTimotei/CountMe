@@ -86,9 +86,9 @@ function setElem(){
         a.setAttribute('type', 'submit')
         a.setAttribute('assignment', 'add')
         a.classList = 'std_prgLngs_btn__'
+        a.setAttribute('onclick', 'setClass()')
         document.querySelector('.form_add_class').appendChild(a);
     } 
-        document.querySelector('.std_prgLngs_btn__').addEventListener('click', setLanguage);
 }
 
 function delElem(){
@@ -98,52 +98,43 @@ function delElem(){
 
 
 
-function setLanguage(){
-    displayAllClasses('1');
+function setClass(){
     let prgrm_lngs = document.querySelectorAll('.prgrm_lngs');
     addClass('1', prgrm_lngs[0].value, prgrm_lngs[1].value, prgrm_lngs[2].value);
     prgrm_lngs.forEach(elem => {
         elem.value = '';
     });
-    delElem();
+    displayAllClasses('1');
+    document.querySelector('.std_prgLngs_btn__').remove();
 }
 
-class removeClass {
+
+
+class removeClass{
     constructor() {
-        this.remove_delete_class = () => {
-            this.warning();
-            this.delNo();
-            this.delYs();
-        }
-        this.warning = () => {
+        this.remove_delete_class = (a) => {
+            this.warning(a.children[0].value);
+        };
+        
+        this.warning = (cls) => {
             if (!document.querySelector('.warning_bg')) {
                 let a = document.createElement('div');
                 a.classList = 'warning_bg';
-                a.innerHTML = '<div class="warning_bg2"><span class="warning_msg_">Remove class?</span> <button class="warning_delete" delete="yes" type="button">YES</button><button class="warning_delete" delete="no" type="button">NO</button></span><input type="hidden" class=""warning_delete_input" value=""></div>';
+                a.innerHTML = '<div class="warning_bg2"><span class="warning_msg_">Remove class?</span> <button class="warning_delete" delete="yes" type="button" onclick="(new removeClass()).removeCls(this)">YES<input type="hidden"  value="'+cls+'"></button><button class="warning_delete" delete="no" type="button" onclick="(new removeClass()).giveUp()">NO</button></div>';
                 document.querySelector('.visOFF').appendChild(a);
             }
         };
 
-        this.giveUp = () => {
-            if (document.querySelector('.warning_bg'))
-                document.querySelector('.warning_bg').remove();
-        };
-
-        this.deleteClass = (a) => {
-            removeClassDB(a);
-            giveUp();
+        this.removeCls = (a) =>{
+            removeClassDB(a.children[0].value);
             displayAllClasses('1');
-        };
+            this.giveUp();
+        }
 
-        this.delYs = (a) => {
-            document.querySelector('[delete="yes"]').addEventListener('click', function () {
-                deleteClass(a);
-            });
-        };
+        this.giveUp = () =>{
+            document.querySelector('.warning_bg').remove();
+        }
 
-        this.delNo = () => {
-            document.querySelector('[delete="no"]').addEventListener('click', giveUp);
-        };
     }
 }
 

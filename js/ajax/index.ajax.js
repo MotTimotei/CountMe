@@ -17,7 +17,7 @@ function addClass(a, b, c, d){
 }
 
 function displayAllClasses(a){
-    let xhttp;
+    let xhttp;  
     if (a == "") {
         document.querySelector('.showclasses').innerHTML = "";
       return;

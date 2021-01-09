@@ -12,7 +12,10 @@ class StudentsController extends StudentsModel{
 
     public function removeStudentClass($id){
         $this->deleteStudentClass($id);
+    }
 
+    public function setSessionDB($student_class_id, $session_time, $price_hour, $paid, $session_date_sch){
+        $this->setSession($student_class_id, $session_time, $price_hour, $paid, $session_date_sch);
     }
 }
 
