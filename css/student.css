@@ -34,7 +34,6 @@
 .add_classes_li{display: block;margin:10px;}
 .add_classes_li_teacher{float: right;}
 .add_classes_li_class, .add_classes_li_teacher{margin:0 5px;}
-.class_answ_msg{display: inline-flex;
-    align-items: center;}
+.class_answ_msg{display: table;}
     
 .class_answ{height:200px;width: 100%;overflow: auto;}

@@ -96,16 +96,8 @@ if(!$result) returnIndex();
             
             <div class="sec_info">            
                 <h3>Classes</h3>
-                <span owned="yes" class="std_prgLngs">Java<span class="std_prgLngs_cls"><img src="img/close.svg" class="std_prgLngs_cls_img" alt=""></span></span>
-                <span owned="yes" class="std_prgLngs">JavaScript<span class="std_prgLngs_cls"></span></span>
-                <span owned="yes" class="std_prgLngs">Python<span class="std_prgLngs_cls"></span></span>
-                <span owned="yes" class="std_prgLngs">C#<span class="std_prgLngs_cls"></span></span>
-                <span owned="yes" class="std_prgLngs">C++<span class="std_prgLngs_cls"></span></span>
-            
-
-                <span owned="selected" class="std_prgLngs">PHP<span class="std_prgLngs_cls"></span></span>
-
-
+                <div class="class_view">
+                  </div>
                 <div class="std_prgLngs std_prgLngs_ std_prgLngs_2">
                     <button type="button" class="std_prgLngs_btn std_prgLngs_btn2" assignment="add_close"></button>
                     <div class="add_classes_div ">
@@ -126,8 +118,7 @@ if(!$result) returnIndex();
             </div>
         </form>
     </div>
-    <script src="js/ajax_first.js"></script>
-    <script src="js/studentSettings.js"></script>
+    <script src="js/ajax/student.ajax.js"></script>
 
     <script>
         let a = document.querySelector('.add_std');

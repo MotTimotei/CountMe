@@ -1,7 +1,6 @@
 let std_prgLngs_btn = document.querySelector('.std_prgLngs_btn');
 let std_prgLngs_ = document.querySelector('.std_prgLngs_');
 
-removeClass();
 
 
 //open&close section settings
@@ -40,7 +39,6 @@ function print(){
 //remove all section's elements
 function remove_delete(){
     
-    let inp_lbl = document.querySelector('.inp_lbl');
     if(!validate(document.querySelectorAll('.prgrm_lngs'))){
         document.querySelector('.form_add_class').remove();
         elemsToggle();
@@ -155,9 +153,5 @@ function removeClass(){
     });
 
 
-}
-
-function refreshClasses(){
-    let a = document.querySelector('.std_prgLngs');
 }
 

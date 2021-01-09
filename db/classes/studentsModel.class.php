@@ -20,6 +20,24 @@ class StudentsModel extends Db{
         return $results;
     }
 
+    protected function getOwnedClasses($student_id){
+        $sql = "SELECT * FROM student_class WHERE students_id = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$student_id]);
+        
+        $results = $stmt->fetchAll();
+        return $results;
+    }
+
+    protected function getClassNameBasedOnTeacher_class_id($id){
+        $sql = "SELECT * FROM teacher_class WHERE id = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$id]);
+        
+        $results = $stmt->fetch();
+        return $results;
+    }
+
     protected function getAnyStudentInfo($table, $colunmn, $cuv, $column2, $cuv2){
         $sql = "SELECT * FROM  $table WHERE ($colunmn = ? AND $column2 = ?)";
         $stmt = $this->connect()->prepare($sql);

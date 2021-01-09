@@ -49,7 +49,7 @@ include "includes/header.php";
     <script src="js/popUpPanel.js"></script>
 </div>
 
-<script src="js/theme.class.js"></script>
+<script src="js/classes/theme.class.js"></script>
 <script>
     let thm_view = document.querySelectorAll('.thm_view');
     let theme_inp_sel = document.querySelector('.theme_inp_sel');
@@ -66,9 +66,9 @@ include "includes/header.php";
     theme_inp_sel.setAttribute('value', this.getAttribute('theme_id'));
     }
 </script>
-<script src="js/ajax/addClass.ajax.js"></script>
-<script src="js/settingsClasses.js"></script>
-<script src="js/settingsThemes.js"></script>
+<script src="js/ajax/index.ajax.js"></script>
+<script src="js/index.settingsClasses.js"></script>
+<script src="js/index.settingsThemes.js"></script>
 <?php
 include 'includes/footer.php';
 ?>

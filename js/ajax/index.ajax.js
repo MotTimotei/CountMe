@@ -1,3 +1,7 @@
+function _displayAllClasses(){
+  displayAllClasses(a);
+}
+
 function addClass(a, b, c, d){
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
