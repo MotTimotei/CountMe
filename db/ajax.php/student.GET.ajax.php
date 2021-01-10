@@ -171,9 +171,9 @@ function displaymonthlyIncomeDetails(){
             $session_date = new DateTime($sess['session_data_act']);
             if($session_date->format('m') == $month)
                 $mnth_incm += ($sess['session_time'] / 60) * $sess['price_hour'] - $sess['paid'];
-        }   if($session_date < $today)
+            if($session_date < $today)
                 $debt += ($sess['session_time'] / 60) * $sess['price_hour'] - $sess['paid'];
-                
+        }    
     }
     echo '
         <h1> Remaining monthly income: '.$mnth_incm.'ron</h1>

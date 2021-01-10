@@ -1,4 +1,12 @@
 displayAllStudentsUpcomingSessions();
+
+
+
+document.querySelector('.selectMount').addEventListener('change', function(){
+  displaymonthlyIncomeDetailsAll(this.value);
+})
+
+
 function _displayAllClasses(){
   displayAllClasses(a);
 }
@@ -55,5 +63,20 @@ function displayAllStudentsUpcomingSessions(){
     }
   };
   xhttp.open('GET', 'db/ajax.php/teacher.GET.ajax.php?func='+f, true);
+  xhttp.send();
+}
+
+
+function displaymonthlyIncomeDetailsAll(month){
+  const f = 'displaymonthlyIncomeDetailsAll';
+  let xhttp;
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200) {
+      document.querySelector('.std_infTXT').innerHTML = this.responseText;
+    } else document.querySelector('.std_infTXT').innerHTML = 'error';
+
+  };
+  xhttp.open('GET', 'db/ajax.php/teacher.GET.ajax.php?func='+f+'&month='+month, true);
   xhttp.send();
 }

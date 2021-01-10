@@ -29,6 +29,9 @@ class StudentsView extends StudentsModel{
     public function returnStudentSessions($student_class_id){
         return $this->getStudentSessions($student_class_id);
     }
+    public function returnAllSessions(){
+        return $this->getAllSessions();
+    }
 
     public function returnOwnedClasses($student_id){
         return $this->getOwnedClasses($student_id);

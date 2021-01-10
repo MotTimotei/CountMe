@@ -81,6 +81,15 @@ class StudentsModel extends Db{
         return $result;
     }
 
+    protected function getAllSessions(){
+        $sql = "SELECT * FROM sessions";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+
+        $results = $stmt->fetchAll();
+        return $results; 
+    }
+
     protected function setStudent($first_name, $last_name, $gender, $phone, $email){
         $sql = "INSERT INTO students (first_name, last_name, gender, phone, email)
                 VALUES (?, ?, ?, ?, ?);";
