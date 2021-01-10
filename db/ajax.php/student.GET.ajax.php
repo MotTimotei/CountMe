@@ -8,6 +8,8 @@ if($func == 'displayAvailableClasses') displayAvailableClasses();
 else if($func == 'displayOwnedClasses') displayOwnedClasses();
 else if($func == 'displayClassSessionTimeAndCost') displayClassSessionTimeAndCost();
 else if($func == 'displayAddSessionClass') displayAddSessionClass();
+else if($func == 'displayUpcomingSession') displayUpcomingSession();
+else if($func == 'displaymonthlyIncomeDetails') displaymonthlyIncomeDetails();
 
 function displayAvailableClasses(){
     $a = $_GET['class'];
@@ -89,13 +91,13 @@ function displayOwnedClasses(){
 function displayAddSessionClass(){
     $a = $_GET['id'];
     $results = new StudentsView();
-    $classes = $results->returnStudentAllClasses($a);
-    if(!$classes) echo 'No classes yet!<br>Add class!';
+    $classes = $results->returnOwnedClasses($a);
+    if(!$classes) echo 'No classes yet!<br><button type="button" onclick="close_open()">Add class!</button>';
     else{
         echo '
         <label for="getClasses">Choose class</label>
-        <select class="getClasses session_elem" name="getClasses" id="getClasses" onchange="showClassSessionTimeAndCost(this)">';
-
+        <select class="getClasses session_elem" name="getClasses" id="getClasses" onchange="showClassSessionTimeAndCost(this)">
+            <option style="opcaity:.4;">Choose class</option>';
         foreach($classes as $class){
             $class2 = $results->returnClassNameBasedOnTeacher_class_id($class["teacher_class_id"]);
             echo '<option value="'.$class2["id"].'">'.$class2["name_"].'</option>';
@@ -109,7 +111,8 @@ function displayClassSessionTimeAndCost(){
     $a = $_GET['class_id'];
     $result = new TeacherView();
     $class = $result->returnClass($a);
-    if(!$class) echo 'There is an error!';
+    if($class == '') echo '';
+    else if(!$class)  echo 'There is an error!';
     else echo '
         <label for="session_time_add_session">Session time</label>
         <input class="session_elem" type="number" id="session_time_add_session" value="'.$class["session_time"].'" required>min
@@ -129,6 +132,54 @@ function displayClassSessionTimeAndCost(){
         <button type="button" class="" onclick="setSession()">Add Session</button>
         ';
 }
+
+function displayUpcomingSession(){
+    $student_id = $_GET['student_id'];
+    $mnt = ['Jan', 'Feb', 'Mar', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    $results = new TeacherView();
+    $students = new StudentsView();
+    $sessions = $results->returnAllStudentsUpcomingSessions();
+    if(!$sessions) echo 'No sessions yet!';
+    else 
+        foreach($sessions as $session){
+            $student_class_id = $students->returnStudentBasedOnSessionStudent_class_id($session['student_class_id']);
+            $student = $students->returnStudent($student_class_id['students_id']);
+            $session_date_time = new DateTime($session['session_data_sch']);
+            $now_date_time = new DateTime('NOW');
+            if($student['id'] === $student_id)
+                if($session_date_time>$now_date_time)
+                echo '
+                    <div class="info_box tltp">
+                        <span class="tltptxt">'.$student['last_name'][0].'. '.$student['first_name'].'</span>
+                        <a href="student.php?id='.$student['id'].'&session='.$session['id'].'" >'.$session_date_time->format('d M Y').'
+                        </a>
+                    </div>';
+        }
+}
+
+function displaymonthlyIncomeDetails(){
+    $student_id = $_GET['student_id'];
+    $month = $_GET['month'];
+    $mnth_incm = 0;
+    $debt = 0;
+    $today = new DateTime('NOW');
+    $results = new StudentsView();
+    $StudentAllClasses = $results->returnStudentAllClasses($student_id);
+    foreach($StudentAllClasses as $StudentClass){
+        $session = $results->returnStudentSessions($StudentClass['id']);
+        foreach($session as $sess){
+            $session_date = new DateTime($sess['session_data_act']);
+            if($session_date->format('m') == $month)
+                $mnth_incm += ($sess['session_time'] / 60) * $sess['price_hour'] - $sess['paid'];
+        }   if($session_date < $today)
+                $debt += ($sess['session_time'] / 60) * $sess['price_hour'] - $sess['paid'];
+                
+    }
+    echo '
+        <h1> Remaining monthly income: '.$mnth_incm.'ron</h1>
+        <h1> Debt: '.$debt.'ron';
+}
+
 
 
 

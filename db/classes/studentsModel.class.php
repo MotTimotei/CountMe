@@ -63,6 +63,23 @@ class StudentsModel extends Db{
         $results = $stmt->fetchAll();
         return $results;
     }
+    protected function getStudentAllClasses($student_id){
+        $sql = "SELECT * FROM student_class WHERE students_id = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$student_id]);
+
+        $results = $stmt->fetchAll();
+        return $results;
+    }
+
+    protected function getStudentSessions($student_class_id){
+        $sql = "SELECT * FROM sessions WHERE student_class_id = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$student_class_id]);
+
+        $result = $stmt->fetchAll();
+        return $result;
+    }
 
     protected function setStudent($first_name, $last_name, $gender, $phone, $email){
         $sql = "INSERT INTO students (first_name, last_name, gender, phone, email)
@@ -80,10 +97,10 @@ class StudentsModel extends Db{
     }
 
     protected function setSession($student_class_id, $session_time, $price_hour, $paid, $session_date_sch){
-        $sql = "INSERT INTO sessions (student_class_id, session_time, price_hour, paid, session_data_sch)
-                VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO sessions (student_class_id, session_time, price_hour, paid, session_data_sch, session_data_act)
+                VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([$student_class_id, $session_time, $price_hour, $paid, $session_date_sch]);
+        $stmt->execute([$student_class_id, $session_time, $price_hour, $paid, $session_date_sch, $session_date_sch]);
     }
 
     protected function deleteStudentClass($id){

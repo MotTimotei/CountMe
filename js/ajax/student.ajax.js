@@ -2,11 +2,16 @@ document.querySelector('.add_std_btn').addEventListener('click', function(){
   refreshServer();
 })
 
-
+document.querySelector('.selectMount').addEventListener('change', function(){
+  displaymonthlyIncomeDetails(id_ul, this.value);
+})
 
 let st_id = new URLSearchParams(window.location.search)
 let id_ul = st_id.get('id');
 
+
+
+displayUpcomingSession(id_ul);
 
 function refreshServer(){
   showOwnedClasses();
@@ -68,8 +73,8 @@ function addClassToLibrary(std_id, cls_id){
           displayOwnedClasses(id_ul);
           if(document.querySelector('#search_class'))
             displayAvailableClasses(document.querySelector('#search_class').value, id_ul)
-      
-        }
+          showAddSessionClass()
+          }
     };
     
     xhttp.open("POST", "db/ajax.php/student.POST.ajax.php");
@@ -86,7 +91,7 @@ function removeClassFromLibrary(std_id, cls_id){
           displayOwnedClasses(id_ul);
           if(document.querySelector('#search_class'))
             displayAvailableClasses(document.querySelector('#search_class').value, id_ul)
-      
+          showAddSessionClass()
         }
     };
     
@@ -157,7 +162,8 @@ function displayOwnedClasses(id){
     let xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
         if (this.readyState == 4 && this.status == 200) {
-            clearSession();
+            clearSession()
+            displayUpcomingSession(id_ul)
         }
     };
     
@@ -166,7 +172,30 @@ function displayOwnedClasses(id){
     xhttp.send('func='+f+'&student_id='+id_ul+'&teacher_class_id='+teacher_class_id+'&session_time='+session_time+'&hour_cost='+hour_cost+'&paid='+paid+'&session_date_sch='+session_date_sch);
   }
 
-  function displayUpcomingSession(){
-      
+  function displayUpcomingSession(id_ul){
+    const f = 'displayUpcomingSession';
+    let xhttp;
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.querySelector('.upcoming_session').innerHTML = this.responseText;
+      }
+    };
+    xhttp.open('GET', 'db/ajax.php/student.GET.ajax.php?func='+f+'&student_id='+id_ul, true);
+    xhttp.send();
+  }
+
+  function displaymonthlyIncomeDetails(id_ul, month){
+    const f = 'displaymonthlyIncomeDetails';
+    let xhttp;
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+      if(this.readyState == 4 && this.status == 200) {
+        document.querySelector('.std_infTXT').innerHTML = this.responseText;
+      } else document.querySelector('.std_infTXT').innerHTML = 'error';
+
+    };
+    xhttp.open('GET', 'db/ajax.php/student.GET.ajax.php?func='+f+'&student_id='+id_ul+'&month='+month, true);
+    xhttp.send();
   }
 

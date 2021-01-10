@@ -27,19 +27,20 @@ $teacherObj = new TeacherView();
             <a href="students.php">Elevi</a>
         </nav>
         <div id="mounth">
-            <select name="selectMounth" id="selectMount">
-                <option value="">Ianuarie</option>
-                <option value="">Februarie</option>
-                <option value="">Martie</option>
-                <option value="">Aprilie</option>
-                <option value="">Mai</option>
-                <option value="">Iunie</option>
-                <option value="">Iulie</option>
-                <option value="">August</option>
-                <option value="">Septembrie</option>
-                <option value="">Octombrie</option>
-                <option value="">Noiembrie</option>
-                <option value="">Decembrie</option>
+            <select name="selectMounth" id="selectMount" class="selectMount">
+                <option value="">Select month</option>
+                <option value="1">Ianuarie</option>
+                <option value="2">Februarie</option>
+                <option value="3">Martie</option>
+                <option value="4">Aprilie</option>
+                <option value="5">Mai</option>
+                <option value="6">Iunie</option>
+                <option value="6">Iulie</option>
+                <option value="8">August</option>
+                <option value="9">Septembrie</option>
+                <option value="10">Octombrie</option>
+                <option value="11">Noiembrie</option>
+                <option value="12">Decembrie</option>
             </select>
         </div>
     </header>

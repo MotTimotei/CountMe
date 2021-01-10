@@ -32,11 +32,7 @@ if(!$result) returnIndex();
     <h2 id="">Upcoming sessions</h2>
     <button type="button "class="openAddSession" onclick="showAddSessionClass()">Open session</button>
     <div class="add_session"></div>
-        <div class="upcoming_session">
-            <div class="info_box">14 decembrie</div>
-            <div class="info_box">16 decembrie</div>
-            <div class="info_box">24 decembrie</div>
-        </div>
+        <div class="upcoming_session"></div>
 </div>
 
 <div class="add_std">

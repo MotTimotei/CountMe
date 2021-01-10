@@ -24,7 +24,10 @@ class StudentsView extends StudentsModel{
     }
 
     public function returnStudentAllClasses($id){
-        return $this->returnOwnedClasses($id);
+        return $this->getStudentAllClasses($id);
+    }
+    public function returnStudentSessions($student_class_id){
+        return $this->getStudentSessions($student_class_id);
     }
 
     public function returnOwnedClasses($student_id){
