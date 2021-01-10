@@ -126,3 +126,15 @@ text-align: center;font-size: 4em;color:var(--color-text);}
 .warning_msg_{display: block;margin:auto;margin-top:10px;}
 .warning_delete[delete="yes"]{float:left; color:var(--red-color)}
 .warning_delete[delete="no"]{float: right; }
+
+.tltp{position:relative;display:inline-block;}
+.tltptxt{display:inline-block;visibility:hidden;min-width:140px;background-color: var(--bg);color:var(--color-text);text-align:center;border-radius:6px;padding:5px 10px;border-radius:10px; position:absolute;left:50%;transform:translate(-50%);bottom:calc(100% + 20px);z-index:1;} 
+.tltp:hover .tltptxt{visibility: visible;}
+.tltptxt::before{    content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%);
+  border-width: 8px;
+  border-style: solid;
+  border-color: var(--bg) transparent transparent transparent;}

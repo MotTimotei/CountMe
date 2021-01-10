@@ -19,6 +19,14 @@ class StudentsModel extends Db{
         $results = $stmt->fetchAll();
         return $results;
     }
+    protected function getStudentBasedOnSessionStudent_class_id($id){
+        $sql = "SELECT * FROM student_class WHERE id = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$id]);
+
+        $result = $stmt->fetch();
+        return $result;
+    }
 
     protected function getOwnedClasses($student_id){
         $sql = "SELECT * FROM student_class WHERE students_id = ?";
@@ -83,6 +91,7 @@ class StudentsModel extends Db{
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$id]);
     }
+
 }
 
 ?>

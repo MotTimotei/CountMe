@@ -83,6 +83,15 @@ class TeacherModel extends Db{
         return $result;
     }
 
+    protected function getAllStudentsUpcomingSessions(){
+        $sql = "SELECT * FROM sessions";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute();
+
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
     protected function setTeacher($first_name, $last_name, $gender, $phone, $email){
         $sql = "INSERT INTO teacher (first_name, last_name, gender, phone, email)
                 VALUES (?, ?, ?, ?, ?);";

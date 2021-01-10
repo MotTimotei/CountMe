@@ -16,28 +16,29 @@ class StudentsView extends StudentsModel{
         }
 
     }
+    public function returnStudent($id){
+        return $this->getStudent($id);
+    }
+    public function returnStudentBasedOnSessionStudent_class_id($id){
+        return $this->getStudentBasedOnSessionStudent_class_id($id);
+    }
 
     public function returnStudentAllClasses($id){
-        $results = $this->returnOwnedClasses($id);
-        return $results;
+        return $this->returnOwnedClasses($id);
     }
 
     public function returnOwnedClasses($student_id){
-        $results = $this->getOwnedClasses($student_id);
-        return $results;
+        return $this->getOwnedClasses($student_id);
     }
     public function returnClassNameBasedOnTeacher_class_id($id){
-        $result = $this->getClassNameBasedOnTeacher_class_id($id);
-        return $result;
+        return  $this->getClassNameBasedOnTeacher_class_id($id);
     }
 
     public function returnAnyStudenInfo($table, $colunmn, $cuv, $column2, $cuv2){
-        $results = $this->getAnyStudentInfo($table, $colunmn, $cuv, $column2, $cuv2);
-        return $results;
+        return $this->getAnyStudentInfo($table, $colunmn, $cuv, $column2, $cuv2);
     }
 
     public function returnStudentClassID($students_id, $teacher_class_id){
         return $this->getStudentClassID($students_id, $teacher_class_id);
     }
-
 }

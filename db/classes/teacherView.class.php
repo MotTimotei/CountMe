@@ -137,18 +137,19 @@ class TeacherView extends TeacherModel{
     }
 
     public function showAllClassesFromAllTeachers(){
-        $classes = $this->getAllClassesFromAllTeachers();
-        return $classes;
+        return $this->getAllClassesFromAllTeachers();
     }
 
     public function showClassLike($name){
-        $class = $this->getClassLike($name);
-        return $class;
+        return $this->getClassLike($name);
     }
 
     public function returnClass($id){
-        $class= $this->getClass($id);
-        return $class;
+        return $this->getClass($id);
+    }
+
+    public function returnAllStudentsUpcomingSessions(){
+        return $this->getAllStudentsUpcomingSessions();
     }
 
 }

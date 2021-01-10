@@ -5,7 +5,6 @@ include "../myAutoLoader.php";
 $func = $_GET['func'];
 
 if($func == 'displayAvailableClasses') displayAvailableClasses();
-else if($func == 'removeClassFromLibrary') removeClassFromLibrary();
 else if($func == 'displayOwnedClasses') displayOwnedClasses();
 else if($func == 'displayClassSessionTimeAndCost') displayClassSessionTimeAndCost();
 else if($func == 'displayAddSessionClass') displayAddSessionClass();
@@ -85,17 +84,7 @@ function displayOwnedClasses(){
 
 
 
-function removeClassFromLibrary(){
-    $a = $_GET['student_id'];
-    $b = $_GET['teacher_class_id'];
-    $results = new StudentsView();
-    $results2 = new StudentsController();
-    $classes = $results->returnStudentClassID($a, $b);
-    foreach($classes as $class){
-        $results2->removeStudentClass($class['id']);
-    }
 
-}
 
 function displayAddSessionClass(){
     $a = $_GET['id'];
@@ -140,5 +129,7 @@ function displayClassSessionTimeAndCost(){
         <button type="button" class="" onclick="setSession()">Add Session</button>
         ';
 }
+
+
 
 ?>

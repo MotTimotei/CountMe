@@ -15,17 +15,7 @@ include "includes/header.php";
 </div>
 <div class="sec_info organizeBox organizeBox__">
     <h2>Upcoming sessions</h2>
-    <div class="info_box"><a href="student.php">Timi, 11 Dec 2020</a></div>
-    <div class="info_box"><a href="student.php">Timi, 11 Dec 2020</a></div>
-    <div class="info_box"><a href="student.php">Timi, 11 Dec 2020</a></div>
-    <div class="info_box"><a href="student.php">Timi, 11 Dec 2020</a></div>
-    <div class="info_box"><a href="student.php">Timi, 11 Dec 2020</a></div>
-    <div class="info_box"><a href="student.php">Timi, 11 Dec 2020</a></div>
-    <div class="info_box"><a href="student.php">Timi, 11 Dec 2020</a></div>
-    <div class="info_box"><a href="student.php">Timi, 11 Dec 2020</a></div>
-    <div class="info_box"><a href="student.php">Timi, 11 Dec 2020</a></div>
-    <div class="info_box"><a href="student.php">Timi, 11 Dec 2020</a></div>
-    <div class="info_box"><a href="student.php">Timi, 11 Dec 2020</a></div>
+    <div class="upcomingSessions"></div>
 </div>
 <div id="third_info" class="sec_info organizeBox organizeBox__">
     <h2>Your students</h2>

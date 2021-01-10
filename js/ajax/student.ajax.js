@@ -1,26 +1,35 @@
-let cls = document.querySelector('#search_class')
+document.querySelector('.add_std_btn').addEventListener('click', function(){
+  refreshServer();
+})
+
+
+
 let st_id = new URLSearchParams(window.location.search)
 let id_ul = st_id.get('id');
 
-let add_std_btn = document.querySelector('.add_std_btn').onclick = showOwnedClasses();
-cls.addEventListener('keyup', function(){
-    displayAvailableClasses(cls.value, id_ul);
-    displayOwnedClasses(id_ul);
 
-})
+function refreshServer(){
+  showOwnedClasses();
+}
+
+
+function showAvailableClasses(){
+  if(document.querySelector('#search_class'))
+    displayAvailableClasses(document.querySelector('#search_class').value, id_ul)
+  displayOwnedClasses(id_ul);
+}
 
 function addToLibrary (a){
     let cl = a.childNodes[1].value
     addClassToLibrary(id_ul, cl)
-    displayOwnedClasses(id_ul);
-    displayAvailableClasses(cls.value, id_ul)
 }
 
 function removeFromLibrary (a){
     let cl = a.childNodes[1].value
     removeClassFromLibrary(id_ul, cl)
     displayOwnedClasses(id_ul);
-    displayAvailableClasses(cls.value, id_ul)
+    if(document.querySelector('#search_class'))
+    displayAvailableClasses(document.querySelector('#search_class').value, id_ul)
     
 }
 
@@ -56,7 +65,10 @@ function addClassToLibrary(std_id, cls_id){
     let xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
         if (this.readyState == 4 && this.status == 200) {
-            //
+          displayOwnedClasses(id_ul);
+          if(document.querySelector('#search_class'))
+            displayAvailableClasses(document.querySelector('#search_class').value, id_ul)
+      
         }
     };
     
@@ -71,12 +83,16 @@ function removeClassFromLibrary(std_id, cls_id){
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            //
+          displayOwnedClasses(id_ul);
+          if(document.querySelector('#search_class'))
+            displayAvailableClasses(document.querySelector('#search_class').value, id_ul)
+      
         }
     };
     
-    xhttp.open('GET', 'db/ajax.php/student.GET.ajax.php?func='+f+'&student_id='+std_id+'&teacher_class_id='+cls_id);
-    xhttp.send();
+    xhttp.open('POST', 'db/ajax.php/student.POST.ajax.php');
+    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhttp.send('func='+f+'&student_id='+std_id+'&teacher_class_id='+cls_id);
 
 }
 
@@ -148,5 +164,9 @@ function displayOwnedClasses(id){
     xhttp.open("POST", "db/ajax.php/student.POST.ajax.php");
     xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhttp.send('func='+f+'&student_id='+id_ul+'&teacher_class_id='+teacher_class_id+'&session_time='+session_time+'&hour_cost='+hour_cost+'&paid='+paid+'&session_date_sch='+session_date_sch);
+  }
+
+  function displayUpcomingSession(){
+      
   }
 

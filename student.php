@@ -65,16 +65,9 @@ if(!$result) returnIndex();
                 <h3>Classes</h3>
                 <div class="class_view">
                   </div>
-                <div class="std_prgLngs std_prgLngs_ std_prgLngs_2">
-                    <button type="button" class="std_prgLngs_btn std_prgLngs_btn2" assignment="add_close"></button>
-                    <div class="add_classes_div ">
-                        <label for="search_class">Add class</label>
-                        <input name="prg_search_class" id="search_class" type="text" class="add_std_inp">
-
-                        <div class="class_answ settings_scrBar2">
-                            <span class="class_answ_msg">Search for a class not listed above</span>
-                        </div>
-                    </div>
+                <div class="std_prgLngs std_prgLngs_ ">
+                    <button type="button" class="std_prgLngs_btn " assignment="add_close" onclick="openOrClose(this)"></button>
+                    
                 </div>
 
             </div>
@@ -86,7 +79,7 @@ if(!$result) returnIndex();
         </form>
     </div>
     <script src="js/ajax/student.ajax.js"></script>
-
+    <script src="js/student.settings.js"></script>
     <script>
         let a = document.querySelector('.add_std');
         let b = document.querySelector('.add_std_btn');

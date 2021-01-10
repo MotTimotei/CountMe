@@ -104,7 +104,7 @@ function setClass(){
     prgrm_lngs.forEach(elem => {
         elem.value = '';
     });
-    displayAllClasses('1');
+   
     document.querySelector('.std_prgLngs_btn__').remove();
 }
 
@@ -127,7 +127,6 @@ class removeClass{
 
         this.removeCls = (a) =>{
             removeClassDB(a.children[0].value);
-            displayAllClasses('1');
             this.giveUp();
         }
 
