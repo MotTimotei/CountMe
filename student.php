@@ -52,7 +52,7 @@ if(!$result) returnIndex();
 
             <label for="gender">Gender</label>
             <select name="gender" name="" id="gender" class="add_std_inp"  value="<?php echo $result["gender"] ?>" required>
-                <option value="M">Male</option>
+                <option value="M">Male</option> 
                 <option value="F">Female</option>
                 <option value="O">Other</option>
             </select>
