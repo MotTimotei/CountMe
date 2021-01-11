@@ -29,11 +29,16 @@ if(!$result) returnIndex();
     </div>
 </div>
 <div class="sec_info organizeBox organizeBox__">
-    <h2 id="">Upcoming sessions</h2>
+    <h2>Upcoming sessions</h2>
     <button type="button "class="openAddSession" onclick="showAddSessionClass()">Open session</button>
     <div class="add_session"></div>
         <div class="upcoming_session"></div>
 </div>
+<div class="sec_info organizeBox organizeBox__">
+    <h3>Teacher: <span>Bara Natanael</span></h3>
+
+</div>
+
 
 <div class="add_std">
     <div class="add_std_ settings_scrBar">

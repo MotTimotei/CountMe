@@ -90,6 +90,24 @@ class StudentsModel extends Db{
         return $results; 
     }
 
+    protected function getSession($id){
+        $sql = "SELECT * FROM sessions WHERE id = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$id]);
+
+        $result = $stmt->fetch();
+        return $result;
+
+    }
+    protected function getStudentClass($id){
+        $sql = "SELECT * FROM student_class WHERE id = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$id]);
+
+        $result = $stmt->fetch();
+        return $result;
+    }
+
     protected function setStudent($first_name, $last_name, $gender, $phone, $email){
         $sql = "INSERT INTO students (first_name, last_name, gender, phone, email)
                 VALUES (?, ?, ?, ?, ?);";

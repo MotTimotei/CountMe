@@ -9,6 +9,7 @@ include "includes/header.php";
     ?>
     <button type="button" class="add_std_btn"><img src="img/add_person.svg"/></button>
 </div>
+
 <div class="add_std">
     <div class="add_std_">
         <form action="db/addStudent.php" method="POST" enctype="multipart/form-data">

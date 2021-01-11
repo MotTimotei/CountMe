@@ -8,8 +8,9 @@ document.querySelector('.selectMount').addEventListener('change', function(){
 
 let st_id = new URLSearchParams(window.location.search)
 let id_ul = st_id.get('id');
+let session_id = st_id.get('session');
 
-
+if(session_id) showSession();
 
 displayUpcomingSession(id_ul);
 
@@ -61,6 +62,10 @@ function setSession(){
     d = document.querySelector('#paid_add_session').value,
     e = document.querySelector('#date_add_session').value.concat(' ', document.querySelector('#time_add_session').value, ':00');
     addSession(id_ul, a, b, c, d, e);
+}
+
+function showSession(){
+  displaySession(session_id);
 }
 
 
@@ -196,6 +201,20 @@ function displayOwnedClasses(id){
 
     };
     xhttp.open('GET', 'db/ajax.php/student.GET.ajax.php?func='+f+'&student_id='+id_ul+'&month='+month, true);
+    xhttp.send();
+  }
+
+  function displaySession(session_id){
+    const f = 'displaySession';
+    let xhttp;
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+      if(this.readyState == 4 && this.status == 200) {
+        document.querySelector('#mainContent').innerHTML += this.responseText;
+      } 
+
+    };
+    xhttp.open('GET', 'db/ajax.php/student.GET.ajax.php?func='+f+'&session_id='+session_id, true);
     xhttp.send();
   }
 
