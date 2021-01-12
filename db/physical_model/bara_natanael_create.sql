@@ -4,6 +4,7 @@
 -- database
 
 CREATE DATABASE bara_natanael;
+USE bara_natanael;
 
 -- tables
 -- Table: sessions
