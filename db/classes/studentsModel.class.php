@@ -124,10 +124,10 @@ class StudentsModel extends Db{
     }
 
     protected function setSession($student_class_id, $session_time, $price_hour, $paid, $session_date_sch){
-        $sql = "INSERT INTO sessions (student_class_id, session_time, price_hour, paid, session_data_sch, session_data_act)
-                VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO sessions (student_class_id, session_time, price_hour, paid, session_data_sch, session_data_act, status)
+                VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([$student_class_id, $session_time, $price_hour, $paid, $session_date_sch, $session_date_sch]);
+        $stmt->execute([$student_class_id, $session_time, $price_hour, $paid, $session_date_sch, $session_date_sch, '0']);
     }
 
     protected function deleteStudentClass($id){

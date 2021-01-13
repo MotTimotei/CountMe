@@ -17,7 +17,7 @@ CREATE TABLE sessions (
     session_data_plc timestamp NOT NULL,
     session_data_sch timestamp NOT NULL,
     session_data_act timestamp NOT NULL,
-    status boolean NOT NULL,
+    status boolean NOT NULL DEFAULT false,
     CONSTRAINT sessions_pk PRIMARY KEY (id)
 );
 
