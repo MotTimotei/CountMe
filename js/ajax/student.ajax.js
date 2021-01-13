@@ -167,6 +167,7 @@ function displayOwnedClasses(id){
     let xhttp = new XMLHttpRequest();
     xhttp.onload = function() {
         if (this.readyState == 4 && this.status == 200) {
+          console.log(this)
             clearSession()
             displayUpcomingSession(id_ul)
         }
