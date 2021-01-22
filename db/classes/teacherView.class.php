@@ -87,7 +87,6 @@ class TeacherView extends TeacherModel{
             </div>
             <div class="bott_set_dec">
                 <button class="add_std_btn_stngs" name="add_std_btn_sett" type="submit">Save</button>
-                <button class="add_std_cls" type="button">Discard</button>
             </div>
             ';
         }

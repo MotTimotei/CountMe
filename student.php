@@ -34,50 +34,45 @@ if(!$result) returnIndex();
     <div class="add_session"></div>
         <div class="upcoming_session"></div>
 </div>
-<div class="sec_info organizeBox organizeBox__">
-    <h3>Teacher: <span>Bara Natanael</span></h3>
 
-</div>
 
 
 <div class="add_std">
     <div class="add_std_ settings_scrBar">
-        <form action="db/studentSettings.php" method="GET" enctype="multipart/form-data">
-            <h2 class="addd_std_hdr">Get started to add ...</h2>
-            <label for="first_name">First name</label>
-            <input name="first_name" id="first_name" type="text" class="add_std_inp" value="<?php echo $result["first_name"] ?>" required>
-            
-            <label for="last_name">Last name</label>
-            <input name="last_name" id="last_name" type="text"class="add_std_inp" value="<?php echo $result["last_name"] ?>" required>
+        <button class="add_std_cls" type="button"></button>
+        <h2 class="addd_std_hdr">Get started to add ...</h2>
+        <label for="first_name">First name</label>
+        <input name="first_name" id="first_name" type="text" class="add_std_inp" value="<?php echo $result["first_name"] ?>" required>
+        
+        <label for="last_name">Last name</label>
+        <input name="last_name" id="last_name" type="text"class="add_std_inp" value="<?php echo $result["last_name"] ?>" required>
 
-            <label for="gender">Gender</label>
-            <select name="gender" name="" id="gender" class="add_std_inp"  value="<?php echo $result["gender"] ?>" required>
-                <option value="M">Male</option> 
-                <option value="F">Female</option>
-                <option value="O">Other</option>
-            </select>
-            <label for="phone">Phone number</label>
-            <input name="phone" id="phone" type="phone" class="add_std_inp" value="<?php echo $result["phone"] ?>" required>
-            
-            <label for="email">e-mail</label>
-            <input name="email" id="email" type="email" class="add_std_inp" value="<?php echo $result["email"] ?>" required>
-            
-            <div class="sec_info">            
-                <h3>Classes</h3>
-                <div class="class_view">
-                  </div>
-                <div class="std_prgLngs std_prgLngs_ ">
-                    <button type="button" class="std_prgLngs_btn " assignment="add_close" onclick="openOrClose(this)"></button>
-                    
+        <label for="gender">Gender</label>
+        <select name="gender" name="" id="gender" class="add_std_inp"  value="<?php echo $result["gender"] ?>" required>
+            <option value="M">Male</option> 
+            <option value="F">Female</option>
+            <option value="O">Other</option>
+        </select>
+        <label for="phone">Phone number</label>
+        <input name="phone" id="phone" type="phone" class="add_std_inp" value="<?php echo $result["phone"] ?>" required>
+        
+        <label for="email">e-mail</label>
+        <input name="email" id="email" type="email" class="add_std_inp" value="<?php echo $result["email"] ?>" required>
+        
+        <div class="sec_info">            
+            <h3>Classes</h3>
+            <div class="class_view">
                 </div>
+            <div class="std_prgLngs std_prgLngs_ ">
+                <button type="button" class="std_prgLngs_btn " assignment="add_close" onclick="openOrClose(this)"></button>
+                
+            </div>
 
-            </div>
-            
-            <div class="bott_set_dec">
-                <button class="add_std_btn_stngs" name="add_std_btn_sett" type="submit">Sign up</button>
-                <button class="add_std_cls" type="button">Discard</button>
-            </div>
-        </form>
+        </div>
+        
+        <div class="bott_set_dec">
+            <button class="add_std_btn_stngs" name="add_std_btn_sett" type="submit">Sign up</button>
+        </div>
     </div>
     <script src="js/ajax/student.ajax.js"></script>
     <script src="js/student.settings.js"></script>
@@ -93,6 +88,7 @@ if(!$result) returnIndex();
         }
     </script>
 </div>
+
 <?php
 include 'includes/footer.php';
 ?>

@@ -12,6 +12,7 @@ include "includes/header.php";
 
 <div class="add_std">
     <div class="add_std_">
+        <button class="add_std_cls" type="button"></button>
         <form action="db/addStudent.php" method="POST" enctype="multipart/form-data">
             <h2 class="addd_std_hdr">Get started to add ...</h2>
             <label for="first_name">First name</label>
@@ -36,7 +37,6 @@ include "includes/header.php";
             
             <div class="bott_set_dec">
                 <button class="add_std_btn_stngs" name="add_std_btn_sett" type="submit">Sign up</button>
-                <button class="add_std_cls" type="button">Discard</button>
             </div>
         </form>
     </div>
