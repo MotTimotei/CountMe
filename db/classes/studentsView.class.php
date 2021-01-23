@@ -16,6 +16,9 @@ class StudentsView extends StudentsModel{
         }
 
     }
+    public function returnAllStudents(){
+        return $this->getAllStudents();
+    }
     public function returnStudent($id){
         return $this->getStudent($id);
     }

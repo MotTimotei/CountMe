@@ -2,10 +2,7 @@
 include "includes/header.php";
 ?>
 <div class="organizeBox stud_info stds__">
-    <div id="main_info" class="std_infTXT">
-        <h1>Income left monty: 1200 ron</h1>
-        <h1>Income left to today: 200 ron</h1>
-    </div>
+    <div id="main_info" class="std_infTXT"> </div>
     <div class="std_infOPT">
     <div class="stud_info_1 ">
         <span class="std_name">Bara Natanael</span>
@@ -19,13 +16,6 @@ include "includes/header.php";
 </div>
 <div id="third_info" class="sec_info organizeBox organizeBox__">
     <h2>Your students</h2>
-    
-    <?php
-    
-        $studentsObj = new StudentsView();
-        $studentsObj->showStudents();
-
-    ?>
 </div>
 
 

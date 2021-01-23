@@ -3,10 +3,6 @@ include "includes/header.php";
 ?>
 <div class="sec_info organizeBox organizeBox__ stds___">
     <h2>Students</h2>
-    <?php
-        $haha = new StudentsView();
-        $haha->showStudents();
-    ?>
     <button type="button" class="add_std_btn"><img src="img/add_person.svg"/></button>
 </div>
 
@@ -52,6 +48,7 @@ include "includes/header.php";
         }
     </script>
 </div>
+
 <?php
 include 'includes/footer.php';
 ?>

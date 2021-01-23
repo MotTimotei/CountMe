@@ -14,10 +14,7 @@ if(!$result) returnIndex();
 
 ?>
 <div class="organizeBox stud_info stds__">
-    <div id="main_info" class="std_infTXT">
-        <h1>Income left month: 365 lei</h1>
-        <h1>Debt: 0 lei</h1>
-    </div>
+    <div id="main_info" class="std_infTXT"></div>
     
     <div class="std_infOPT">
         <div class="stud_info_1 ">
@@ -30,7 +27,7 @@ if(!$result) returnIndex();
 </div>
 <div class="sec_info organizeBox organizeBox__">
     <h2>Upcoming sessions</h2>
-    <button type="button "class="openAddSession" onclick="showAddSessionClass()">Open session</button>
+    <button type="button "class="openAddSession" onclick="displayAddSessionClass()">Open session</button>
     <div class="add_session"></div>
         <div class="upcoming_session"></div>
 </div>

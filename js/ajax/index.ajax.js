@@ -80,3 +80,14 @@ function displaymonthlyIncomeDetailsAll(month){
   xhttp.open('GET', 'db/ajax.php/teacher.GET.ajax.php?func='+f+'&month='+month, true);
   xhttp.send();
 }
+
+function frontToBack(responseTRUE, responseFALSE, method, link){
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200){
+      responseTRUE = this.responseText;
+    } else responseFALSE;
+  };
+  xhttp.open(method, link, true);
+  xhttp.send();
+}
