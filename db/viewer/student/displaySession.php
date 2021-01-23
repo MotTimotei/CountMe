@@ -1,5 +1,5 @@
 <?php
-include "../myAutoLoader.php";
+include "../../myAutoLoader.php";
 
 $session_id = $_GET['session_id'];
 $result = new StudentsView();

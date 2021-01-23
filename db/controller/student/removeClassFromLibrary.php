@@ -1,5 +1,5 @@
 <?php
-include "../myAutoLoader.php";
+include "../../myAutoLoader.php";
 
 $a = $_POST['student_id'];
 $b = $_POST['teacher_class_id'];

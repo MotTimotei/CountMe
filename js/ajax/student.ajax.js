@@ -11,6 +11,10 @@ window.addEventListener('load', function(){
 
 })
 
+function clearSession(){
+  document.querySelector('.session_details').remove();
+}
+
 document.querySelector('.add_std_btn').addEventListener('click', function(){
   displayOwnedClasses()
 })
@@ -25,49 +29,49 @@ function displayMonthlyIncomeDetails(a){
   let load = () => {
     loading(document.querySelector('.std_infTXT'))
   }
-  loadDoc('db/viewer/displayMonthlyIncomeDetails.php?student_id='+id_ul+'&month='+a, document.querySelector('.std_infTXT'), load, myfunction)
+  loadDoc('db/viewer/student/displayMonthlyIncomeDetails.php?student_id='+id_ul+'&month='+a, document.querySelector('.std_infTXT'), load, myfunction)
 }
 
 function displayUpcomingSession(){
   let load = () => {
     loading(document.querySelector('.upcoming_session'))
   }
-  loadDoc('db/viewer/displayUpcomingSession.php?student_id='+id_ul, document.querySelector('.upcoming_session'), load, myfunction)
+  loadDoc('db/viewer/student/displayUpcomingSession.php?student_id='+id_ul, document.querySelector('.upcoming_session'), load, myfunction)
 }
 
 function displayOwnedClasses(){
   let load = () => {
     loading(document.querySelector('.class_view'))
   }
-  loadDoc('db/viewer/displayOwnedClasses.php?student_id='+id_ul, document.querySelector('.class_view'), load, myfunction)
+  loadDoc('db/viewer/student/displayOwnedClasses.php?student_id='+id_ul, document.querySelector('.class_view'), load, myfunction)
 }
 
 function displayAvailableClasses(cls){
   let load = () => {
     loading(document.querySelector('.class_answ'))
   }
-  loadDoc('db/viewer/displayAvailableClasses.php?class='+encodeURIComponent(cls.value)+'&student='+encodeURIComponent(id_ul), document.querySelector('.class_answ'), load, myfunction)
+  loadDoc('db/viewer/student/displayAvailableClasses.php?class='+encodeURIComponent(cls.value)+'&student='+encodeURIComponent(id_ul), document.querySelector('.class_answ'), load, myfunction)
 }
 
 function displayAddSessionClass(){
   let load = () => {
     loading(document.querySelector('.add_session'))
   }
-  loadDoc('db/viewer/displayAddSessionClass.php?id='+id_ul, document.querySelector('.add_session'), load, myfunction)
+  loadDoc('db/viewer/student/displayAddSessionClass.php?id='+id_ul, document.querySelector('.add_session'), load, myfunction)
 }
 
 function displayClassSessionTimeAndCost(class_id){
   let load = () => {
     loading(document.querySelector('.session_details'))
   }
-  loadDoc('db/viewer/displayClassSessionTimeAndCost.php?class_id='+class_id.value, document.querySelector('.session_details'), load, myfunction)
+  loadDoc('db/viewer/student/displayClassSessionTimeAndCost.php?class_id='+class_id.value, document.querySelector('.session_details'), load, myfunction)
 }
   
 function displaySession(session_id){
   let load = () => {
     loading(document.querySelector('.'))
   }
-  loadDoc('db/viewer/displaySession.php?session_id='+session_id, document.querySelector('.'), load, myfunction)
+  loadDoc('db/viewer/student/displaySession.php?session_id='+session_id, document.querySelector('.'), load, myfunction)
 }
 
 //POST method => controller
@@ -82,7 +86,7 @@ function addSession(){
   c = document.querySelector('#hour_cost_add_session').value,
   d = document.querySelector('#paid_add_session').value,
   e = document.querySelector('#date_add_session').value.concat(' ', document.querySelector('#time_add_session').value, ':00');
-  postDoc('db/controller/addSession.php', 'student_id='+id_ul+'&teacher_class_id='+a+'&session_time='+b+'&hour_cost='+c+'&paid='+d+'&session_date_sch='+e, func)
+  postDoc('db/controller/student/addSession.php', 'student_id='+id_ul+'&teacher_class_id='+a+'&session_time='+b+'&hour_cost='+c+'&paid='+d+'&session_date_sch='+e, func)
 }
 
 function addClassToLibrary(a){
@@ -92,7 +96,7 @@ function addClassToLibrary(a){
       displayAvailableClasses(document.querySelector('#search_class'))
       displayAddSessionClass()
   }
-  postDoc('db/controller/addClassToLibrary.php', 'student_id='+id_ul+'&teacher_class_id='+a.childNodes[1].value, func)
+  postDoc('db/controller/student/addClassToLibrary.php', 'student_id='+id_ul+'&teacher_class_id='+a.childNodes[1].value, func)
 }
 
 function removeClassFromLibrary(a){
@@ -102,7 +106,7 @@ function removeClassFromLibrary(a){
       displayAvailableClasses(document.querySelector('#search_class'))
       displayAddSessionClass()
   }
-  postDoc('db/controller/removeClassFromLibrary.php', 'student_id='+id_ul+'&teacher_class_id='+a.childNodes[1].value, func)
+  postDoc('db/controller/student/removeClassFromLibrary.php', 'student_id='+id_ul+'&teacher_class_id='+a.childNodes[1].value, func)
 }
 
 function postDoc(url, vars, cFunction){

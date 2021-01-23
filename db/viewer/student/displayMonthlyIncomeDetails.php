@@ -1,5 +1,5 @@
 <?php
-include "../myAutoLoader.php";
+include "../../myAutoLoader.php";
 
 $student_id = $_GET['student_id'];
 $month = $_GET['month'];
