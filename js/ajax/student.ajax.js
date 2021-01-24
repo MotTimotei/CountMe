@@ -3,6 +3,7 @@ let id_ul = st_id.get('id');
 let session_id = st_id.get('session');
 
 if(session_id) showSession();
+
 window.addEventListener('load', function(){
   let date = new Date()
   let mnth = date.getMonth() + 1
