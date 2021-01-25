@@ -21,7 +21,7 @@ include "includes/header.php";
 
 <div class="add_std ">
     <div class="sec_info add_std_ ">
-        <button class="add_std_cls" type="button"></button>
+        <span class="add_std_cls" type="button"></span>
         <div class="add__std_ settings_scrBar">
             <h1 class="addd_std_hdr">Settings</h1>
             <div class="stng_tch">

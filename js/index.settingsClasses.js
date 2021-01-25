@@ -14,8 +14,8 @@ function checkforValue(a){
 
     let addBtn = () => {
         if(!document.querySelector('.std_prgLngs_btn__')){
-            let a = document.createElement('button')
-            a.setAttribute('type', 'submit')
+            let a = document.createElement('span')
+            a.setAttribute('type', 'button')
             a.setAttribute('assignment', 'add')
             a.classList = 'std_prgLngs_btn__'
             a.setAttribute('onclick', 'addClass()')

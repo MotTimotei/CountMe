@@ -34,7 +34,7 @@ if(!$result) returnIndex();
 
 <div class="add_std">
     <div class="sec_info add_std_ ">
-        <button class="add_std_cls" type="button"></button>
+        <span class="add_std_cls" type="button"></span>
         <div class="add__std_ settings_scrBar">
             <h2 class="addd_std_hdr">Get started to add ...</h2>
             <label for="first_name">First name</label>

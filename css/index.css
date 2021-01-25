@@ -120,8 +120,15 @@ text-align: center;font-size: 4em;color:var(--color-text);}
 
 .bott_set_dec{display: flex;padding-top:40px;width:100%;height: auto;}
 .add_std_btn_stngs{margin:auto;margin-left:0;}
-.add_std_cls{position:absolute;top:10px;right:10px;transform: scale(2) rotateZ(45deg);}
-.add_std_cls::before{content:'\271A';display:flex;align-items: center;}
+.add_std_cls{
+  position: absolute;
+  top:10px;right:10px;
+    width: 18px;
+    height: 18px;
+    padding: 4px;
+    border-radius: 50%;
+    transition: .3s;background-color: var(--red-color);/*content:url(../img/close.svg);*/}
+.add_std_cls:hover{transform:scale(.8)}
 
 
 .warning_bg{width:100%;height:100%;position:fixed;background-color: #00000066;}
