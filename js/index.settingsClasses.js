@@ -1,8 +1,7 @@
-//open&close section settings
 function openOrClose(b){
     let inner = '<div class="inp_lbl"><label for="prg_name">Name</label><input name="prg_name" id="prg_name" type="text" class="add_std_inp prgrm_lngs" onkeyup="checkforValue(this)" value="" required></div>  <div class="inp_lbl"><label for="prg_ses_tm">Session time</label><input name="prg_ses_tm" id="prg_ses_tm" type="number" class="add_std_inp prgrm_lngs" onkeyup="checkforValue(this)" value="" required></div>  <div class="inp_lbl"><label for="prg_cost">Hour cost</label><input name="prg_cost" id="prg_cost" type="number" class="add_std_inp prgrm_lngs" onkeyup="checkforValue(this)" value="" required></div><div class="add___"></div>'
 
-    let a = new StudentSettings(b, inner, 'asdTRY')
+    let a = new ClassOpenClose(b, inner, 'asdTRY')
     if(b.classList.contains('std_prgLngs_btn2'))a.close ()
     else a.open()
 }
@@ -32,7 +31,7 @@ function checkforValue(a){
 
 }
 
-class StudentSettings {
+class ClassOpenClose {
     constructor(elem, inner, div) {
         this.elem = elem;
         this.inner = inner;

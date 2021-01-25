@@ -10,15 +10,18 @@ for($i=0;$i<count($thms);$i++){
     $selected = "no";
     $selected = ($thms[$i]["id"] == $result->returnSettings($_GET['id'])["themes_id"]) ? "yes" : "no";
     echo ' 
-    <div class="thm_view" selected="'.$selected.'" theme_id="'.$thms[$i]["id"].'">
-        <div class="thm_bck" style="background-color:'.$thms[$i]["primary_color"].'">
-            <span class="thm_text"  style="color:'.$thms[$i]["primary_font_color"].'">'.$thms[$i]["name_"].'</span>
-            <div class="thm_box" style="background-color:'.$thms[$i]["secondary_color"].'">
-                <div class="thm_text_box" style="color:'.$thms[$i]["primary_font_color"].';border-color:'.$thms[$i]['secondary_font_color'].'">AaaaBbbCcc</div>
-                <div class="thm_text_box thm__text_box_" style="background-color:'.$thms[$i]['secondary_font_color'].';border-color:'.$thms[$i]['secondary_font_color'].'; color:#ffffff;">AaaaBbbCcc</div>
-            </div>
-            <div class="thm_box" style="background-color:'.$thms[$i]["secondary_color"].'">
-                <span class="thm_text2"  style="color:'.$thms[$i]["secondary_font_color"].'">AaaaBbbCcc</span>
+    <div class="thm_view" selected="'.$selected.'" theme_id="'.$thms[$i]["id"].'" onclick="applyTheme(this)">
+        <div class="thmview_ld"></div>
+        <div class="thmview_ld__">
+            <div class="thm_bck" style="background-color:'.$thms[$i]["primary_color"].'">
+                <span class="thm_text"  style="color:'.$thms[$i]["primary_font_color"].'">'.$thms[$i]["name_"].'</span>
+                <div class="thm_box" style="background-color:'.$thms[$i]["secondary_color"].'">
+                    <div class="thm_text_box" style="color:'.$thms[$i]["primary_font_color"].';border-color:'.$thms[$i]['secondary_font_color'].'">AaaaBbbCcc</div>
+                    <div class="thm_text_box thm__text_box_" style="background-color:'.$thms[$i]['secondary_font_color'].';border-color:'.$thms[$i]['secondary_font_color'].'; color:#ffffff;">AaaaBbbCcc</div>
+                </div>
+                <div class="thm_box" style="background-color:'.$thms[$i]["secondary_color"].'">
+                    <span class="thm_text2"  style="color:'.$thms[$i]["secondary_font_color"].'">AaaaBbbCcc</span>
+                </div>
             </div>
         </div>
     </div>

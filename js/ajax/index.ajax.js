@@ -54,15 +54,28 @@ class RemoveClass{
 
 //GET method => viewer
 
+function displayTheme(){
+  let load = () => {
+
+  }
+  let func = (a) => {
+    document.getElementsByTagName('html')[0].setAttribute('data-theme', JSON.parse(a.responseText).name)
+    document.getElementsByTagName('style')[0].innerHTML = JSON.parse(a.responseText).theme
+  }
+  
+  loadDoc('db/viewer/teacher/displayTheme.php?id='+id_ul, load, func)
+}
+
 function displayTeacherSettings(){
   let load = () => {
     loading(document.querySelector('.stng_tch'))
   }
   let func = (a) => {
+    document.querySelector('.stng_tch').innerHTML = a.responseText
     displayAllClasses()
     displayTeacherThemes()
   }
-  loadDoc('db/viewer/teacher/displayTeacherSettings.php?id='+id_ul, document.querySelector('.stng_tch'), load, func)
+  loadDoc('db/viewer/teacher/displayTeacherSettings.php?id='+id_ul, load, func)
 }
 
 function displayTeacherThemes(){
@@ -70,9 +83,9 @@ function displayTeacherThemes(){
     loading(document.querySelector('.themes_stngs'))
   }
   let func = (a) => {
-
+    document.querySelector('.themes_stngs').innerHTML = a.responseText
   }
-  loadDoc('db/viewer/teacher/displayTeacherThemes.php?id='+id_ul, document.querySelector('.themes_stngs'), load, func)
+  loadDoc('db/viewer/teacher/displayTeacherThemes.php?id='+id_ul, load, func)
 }
 
 function displayAllStudentsUpcomingSessions(){
@@ -80,9 +93,9 @@ function displayAllStudentsUpcomingSessions(){
     loading(document.querySelector('.upcomingSessions'))
   }
   let func = (a) => {
-
+    document.querySelector('.upcomingSessions').innerHTML = a.responseText
   }
-  loadDoc('db/viewer/teacher/displayAllStudentsUpcomingSessions.php', document.querySelector('.upcomingSessions'), load, func)
+  loadDoc('db/viewer/teacher/displayAllStudentsUpcomingSessions.php', load, func)
 }
 
 function displaymonthlyIncomeDetailsAll(month){
@@ -90,9 +103,9 @@ function displaymonthlyIncomeDetailsAll(month){
     loading(document.querySelector('.std_infTXT'))
   }
   let func = (a) => {
-
+    document.querySelector('.std_infTXT').innerHTML = a.responseText
   }
-  loadDoc('db/viewer/teacher/displaymonthlyIncomeDetailsAll.php?month='+month, document.querySelector('.std_infTXT'), load, func)
+  loadDoc('db/viewer/teacher/displaymonthlyIncomeDetailsAll.php?month='+month, load, func)
 }
 
 function displayAllClasses(){
@@ -100,13 +113,33 @@ function displayAllClasses(){
     loading(document.querySelector('.showclasses'))
   }
   let func = (a) => {
-
+    document.querySelector('.showclasses').innerHTML = a.responseText
   }
-  loadDoc('db/viewer/teacher/displayAllClasses.php?id='+id_ul, document.querySelector('.showclasses'), load, func)
+  loadDoc('db/viewer/teacher/displayAllClasses.php?id='+id_ul, load, func)
 }
 
 
 //POST method => controller
+
+function applyTheme(a){
+  let load = () => {
+    loading(a.children[0])
+    a.children[1].style = 'opacity:.5;'
+  }
+  let func = (b) => {
+    displayTheme()
+    document.querySelectorAll('.thm_view').forEach(elem => {
+      elem.setAttribute('selected', 'no')
+      elem.children[0].innerHTML = ''
+      elem.children[1].style = 'opacity:1;'
+    })
+    a.setAttribute('selected', 'yes')
+  }
+  let theme_id = a.getAttribute('theme_id')
+  if(a.getAttribute('selected') == 'no') 
+    postDoc('db/controller/teacher/applyTheme.php', 'id='+id_ul+'&theme_id='+theme_id, load, func)
+
+}
 
 function addClass(){
   let load = () => {
@@ -128,35 +161,4 @@ function removeCls(a){
     displayAllClasses();
   }
   postDoc('db/controller/teacher/removeClass.php', 'id='+a, load, func)
-}
-
-function postDoc(url, vars, load, cFunction){
-  let xhttp = new XMLHttpRequest()
-  xhttp.onloadend = load()
-  xhttp.onreadystatechange = function(){
-    if(this.readyState == 4 && this.status == 200){
-      cFunction()
-    }
-  }
-  xhttp.open('POST', url)
-  xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-  xhttp.send(vars);
-}
-
-function loadDoc(url, doc, load, cFunction){
-  let xhttp = new XMLHttpRequest()
-  xhttp.onloadend = load()
-  xhttp.onreadystatechange = function(){
-    if(this.readyState == 4 && this.status == 200){
-      doc.innerHTML = this.responseText
-      cFunction(this)
-    }
-  }
-  xhttp.open('GET', url, true)
-  xhttp.send()
-}
-
-
-function loading(a){
-  a.innerHTML = '<div class="loader"></div>';
 }

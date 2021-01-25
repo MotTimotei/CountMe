@@ -1,9 +1,11 @@
 <?php
 include 'db/myAutoLoader.php';
-$teacherObj = new TeacherView();
+$result = new TeacherView();
+$thm = $result->returnEntireTheme('1');
+
 ?>
 <!DOCTYPE html>
-<html lang="en" data-theme="<?php echo $teacherObj->returnTheme('1')?>">
+<html lang="en" data-theme="<?php echo$thm['name_']?>">
 
 <head>
     <meta charset="UTF-8">
@@ -11,15 +13,25 @@ $teacherObj = new TeacherView();
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/student.css">
     <link rel="stylesheet" href="css/students.css">
+    <link rel="stylesheet" href="css/loader.map.css">  
+    <script src="js/load/connection.js"></script>
     <title>Count Me</title>
 </head>
 <style>
     <?php
-    
-    $teacherObj->showTheme("1");
+        echo 
+        '
+        html[data-theme="'.$thm["name_"].'"]{
+            --bg:'.$thm["primary_color"].';
+            --bg-panel:'.$thm["secondary_color"].';
+            --color-heading:'.$thm["third_color"].';
+            --color-text:'.$thm["primary_font_color"].';
+            --text-color:'.$thm["secondary_font_color"].';
+        }
+        ';
     ?>
-
 </style>
+
 <body>
     <header id="header">
         <nav id="navBar">

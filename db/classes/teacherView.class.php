@@ -10,30 +10,15 @@ class TeacherView extends TeacherModel{
         return $this->getAllThemes($id);
     }
 
-    public function showTheme($id){
-        $teacher = $this->getTeacher($id);
-        $settings = $this->getSettings($teacher["id"]);
-        $thm = $this->getTheme($settings["themes_id"]);
-        
-        if($teacher && $settings && $thm){
-            echo
-            '
-            html[data-theme="'.$thm["name_"].'"]{
-                --bg:'.$thm["primary_color"].';
-                --bg-panel:'.$thm["secondary_color"].';
-                --color-heading:'.$thm["third_color"].';
-                --color-text:'.$thm["primary_font_color"].';
-                --text-color:'.$thm["secondary_font_color"].';
-                }
-            ';
-        }
+    public function returnTheme($id){
+        return $this->getTheme($id);
     }
  
-    public function returnTheme($id){
+    public function returnEntireTheme($id){
         $teacher = $this->returnTeacher($id);
         $settings = $this->getSettings($teacher["id"]);
         $thm = $this->getTheme($settings["themes_id"]);
-        return $thm["name_"]; 
+        return $thm; 
     }
 
     public function returnSettings($id){
