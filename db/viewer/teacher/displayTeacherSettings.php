@@ -41,9 +41,6 @@ if($teacher){
         <h3>Themes</h3>
         <div class="themes_stngs"></div>
     </div>
-    <div class="bott_set_dec">
-        <button class="add_std_btn_stngs" name="add_std_btn_sett" type="submit">Save</button>
-    </div>
     ';
 }
 

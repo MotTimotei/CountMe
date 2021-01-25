@@ -7,9 +7,9 @@ include "includes/header.php";
 </div>
 
 <div class="add_std">
-    <div class="add_std_">
+    <div class="sec_info add_std_ ">
         <button class="add_std_cls" type="button"></button>
-        <form action="db/addStudent.php" method="POST" enctype="multipart/form-data">
+        <div class="add__std_ settings_scrBar">
             <h2 class="addd_std_hdr">Get started to add ...</h2>
             <label for="first_name">First name</label>
 
@@ -30,11 +30,7 @@ include "includes/header.php";
             <label for="email">e-mail</label>
 
             <input name="email" id="email" type="email" class="add_std_inp" required>
-            
-            <div class="bott_set_dec">
-                <button class="add_std_btn_stngs" name="add_std_btn_sett" type="submit">Sign up</button>
-            </div>
-        </form>
+        </div>
     </div>
     <script>
         let a = document.querySelector('.add_std');
