@@ -3,6 +3,7 @@ include "includes/header.php";
 ?>
 <div class="sec_info organizeBox organizeBox__ stds___">
     <h2>Students</h2>
+    <div class="displ_std"></div>
     <button type="button" class="add_std_btn"><img src="img/add_person.svg"/></button>
 </div>
 
@@ -44,6 +45,7 @@ include "includes/header.php";
         }
     </script>
 </div>
+<script src="js/ajax/students.ajax.js"></script>
 
 <?php
 include 'includes/footer.php';

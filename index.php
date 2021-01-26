@@ -14,6 +14,12 @@ include "includes/header.php";
     <h2>Upcoming sessions</h2>
     <div class="upcomingSessions"></div>
 </div>
+
+<div class="sec_info organizeBox organizeBox__">
+    <h2>All sessions</h2>
+    <div class="allSessions"></div>
+</div>
+
 <div id="third_info" class="sec_info organizeBox organizeBox__">
     <h2>Your students</h2>
 </div>
