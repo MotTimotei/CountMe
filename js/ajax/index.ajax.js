@@ -5,6 +5,7 @@ window.addEventListener('load', function(){
   let mnth = date.getMonth() + 1
   displayAllStudentsUpcomingSessions();
   displaymonthlyIncomeDetailsAll(mnth)
+  displayAllSessions()
 
 })
 
@@ -53,6 +54,16 @@ class RemoveClass{
 
 
 //GET method => viewer
+
+function displayAllSessions(){
+  let load = () => {
+    loading(document.querySelector('.allSessions'))
+  }
+  let func = (a) => {
+    document.querySelector('.allSessions').innerHTML = a.responseText
+  }
+  loadDoc('db/viewer/teacher/displayAllSessions.php', load, func)
+}
 
 function displayTheme(){
   let load = () => {
