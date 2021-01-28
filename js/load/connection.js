@@ -25,6 +25,6 @@ function postDoc(url, vars, load, cFunction){
   }
   
   
-  function loading(a){
-    a.innerHTML = '<div class="loader"></div>';
+  function loading(a, b){
+    a.innerHTML = '<div class="'+b+'"></div>';
   }

@@ -6,7 +6,7 @@ $sessions = $result->returnAllSessionsByYear((new \DateTime('NOW'))->format("Y")
 
 
 
-$length = 12;
+$length = 11;
 $margin = $length / 4;
 //Date
 $date = new DateTime('00-01-'. (new \DateTime())->format("YY"));
@@ -15,8 +15,8 @@ $daysInYear = (new \DateTime('31-12-'. (new \DateTime())->format("YY")))->format
 $lastDayOfYear = (new \DateTime('31-12-'. (new \DateTime())->format("YY")))->format('w');
 
 $sess = deleteDoubles($sessions);
-
-echo '<svg width="'.(53*($length+$margin)).'"><g>';
+echo '<span>'.count($sessions).' sessions in '.(new \DateTime('NOW'))->format('Y').'</span>';
+echo '<div class="allSessionsGraph"><svg width="'.(53*($length+$margin)).'" class="session_graph"><g class="session_callendar">';
 
 for($i = 0;$i<53;$i++){
     $daysInWeek = 0;
@@ -25,21 +25,21 @@ for($i = 0;$i<53;$i++){
     for($j = 0;$j<$a;$j++){
         $date->modify('+1 day');
         $distance = ($i == 0) ? (7-$a+$daysInWeek)*($length+$margin) : $j*($length+$margin);
-        $color = 'var(--bg-panel)';
-        if((new \DateTime($sess[0]['session_data_act']))->format('d-m-Y') == $date->format('d-m-Y')){
-            $color = '#63E06C';
+        $color = 'var(--glass)';
+        if((new \DateTime($sess[0]['session_data_act']))->format('m-d') == $date->format('m-d')){
+            if((new \DateTime($sess[0]['session_data_act']))->format('m-d') < (new \DateTime())->format('m-d')) $color ='#63E06C'; else if((new \DateTime($sess[0]['session_data_act']))->format('m-d') > (new \DateTime())->format('m-d')) $color = '#68C8FF'; else $color =  '#FF6F6F';
             array_shift($sess);
         }
-            echo '<rect class="day" x="0" y="'.$distance.'" width="'.$length.'" height="'.$length.'" style="fill:'.$color.';stroke-width:.1;stroke:var(--color-text)" rx="2" data="'.$date->format('d-m-Y').'"></rect>';
+            echo '<rect class="day" x="0" y="'.$distance.'" width="'.$length.'" height="'.$length.'" fill="'.$color.'" rx="'.($length/4).'" data="'.$date->format('d-m-Y').'"></rect>';
         $daysInWeek++;
     }
     echo'</g>';
 }
 for($i =0;$i<12;$i++){
-    
-    echo '<text x="'.($i*(53*($length+$margin)/12)+$length*2).'" y="20">'.(new \DateTime('01-'.($i+1).'-'. (new \DateTime())->format("YY")))->format('M').'</text>';
+    echo '<text class="month" x="'.($i*(53*($length+$margin)/12)+$length*2).'" y="20" fill="var(--color-text)">'.(new \DateTime('01-'.($i+1).'-'. (new \DateTime())->format("YY")))->format('M').'</text>';
 }
 echo '</g>';
+echo '</div>';
 
 function deleteDoubles($ses){
     $array = array();

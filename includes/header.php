@@ -14,6 +14,7 @@ $thm = $result->returnEntireTheme('1');
     <link rel="stylesheet" href="css/student.css">
     <link rel="stylesheet" href="css/students.css">
     <link rel="stylesheet" href="css/loader.map.css">  
+    <link rel="stylesheet" href="css/callendar_graph.css">  
     <script src="js/load/connection.js"></script>
     <title>Count Me</title>
 </head>

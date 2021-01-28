@@ -28,7 +28,7 @@ document.querySelector('.selectMount').addEventListener('change', function(){
 
 function displayMonthlyIncomeDetails(b){
   let load = () => {
-    loading(document.querySelector('.std_infTXT'))
+    loading(document.querySelector('.std_infTXT'), 'loader')
   }
   let func = (a) => {
     document.querySelector('.std_infTXT').innerHTML = a.responseText
@@ -38,7 +38,7 @@ function displayMonthlyIncomeDetails(b){
 
 function displayUpcomingSession(){
   let load = () => {
-    loading(document.querySelector('.upcoming_session'))
+    loading(document.querySelector('.upcoming_session'), 'loader')
   }
   let func = (a) => {
     document.querySelector('.upcoming_session').innerHTML = a.responseText
@@ -48,7 +48,7 @@ function displayUpcomingSession(){
 
 function displayOwnedClasses(){
   let load = () => {
-    loading(document.querySelector('.class_view'))
+    loading(document.querySelector('.class_view'), 'loader')
   }
   let func = (a) => {
     document.querySelector('.class_view').innerHTML = a.responseText
@@ -58,7 +58,7 @@ function displayOwnedClasses(){
 
 function displayAvailableClasses(cls){
   let load = () => {
-    loading(document.querySelector('.class_answ'))
+    loading(document.querySelector('.class_answ'), 'loader')
   }
   let func = (a) => {
     document.querySelector('.class_answ').innerHTML = a.responseText
@@ -68,7 +68,7 @@ function displayAvailableClasses(cls){
 
 function displayAddSessionClass(){
   let load = () => {
-    loading(document.querySelector('.add_session'))
+    loading(document.querySelector('.add_session'), 'loader')
   }
   let func = (a) => {
     document.querySelector('.add_session').innerHTML = a.responseText
@@ -78,7 +78,7 @@ function displayAddSessionClass(){
 
 function displayClassSessionTimeAndCost(class_id){
   let load = () => {
-    loading(document.querySelector('.session_details'))
+    loading(document.querySelector('.session_details'), 'loader')
   }
   let func = (a) => {
     document.querySelector('.session_details').innerHTML = a.responseText
@@ -88,7 +88,7 @@ function displayClassSessionTimeAndCost(class_id){
   
 function displaySession(session_id){
   let load = () => {
-    loading(document.querySelector('.'))
+    loading(document.querySelector('.'), 'loader')
   }
   let func = (a) => {
     document.querySelector('.').innerHTML = a.responseText

@@ -2,7 +2,8 @@
 include "includes/header.php";
 ?>
 <div class="organizeBox stud_info stds__">
-    <div id="main_info" class="std_infTXT"> </div>
+    <div id="main_info" class="std_infTXT"> 
+    </div>
     <div class="std_infOPT">
     <div class="stud_info_1 ">
         <span class="std_name">Bara Natanael</span>
@@ -15,12 +16,8 @@ include "includes/header.php";
     <div class="upcomingSessions"></div>
 </div>
 
-<div class="sec_info organizeBox organizeBox__">
-    <h2>All sessions</h2>
-    <div class="allSessions">
-        
-    </div>
-</div>
+<div class="allSessions"><?php include 'db/viewer/teacher/displayAllSessions.php'?></div>
+
 <div id="third_info" class="sec_info organizeBox organizeBox__">
     <h2>Your students</h2>
 </div>

@@ -8,7 +8,7 @@ window.addEventListener('load', function(){
 
 function displayStudents(){
     let load = () => {
-        loading(document.querySelector('.displ_std'))
+        loading(document.querySelector('.displ_std'), 'loader')
     }
     let func = (a) => {
         document.querySelector('.displ_std').innerHTML = a.responseText

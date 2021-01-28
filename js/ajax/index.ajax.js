@@ -5,7 +5,7 @@ window.addEventListener('load', function(){
   let mnth = date.getMonth() + 1
   displayAllStudentsUpcomingSessions();
   displaymonthlyIncomeDetailsAll(mnth)
-  displayAllSessions()
+  //displayAllSessions()
 
 })
 
@@ -57,7 +57,7 @@ class RemoveClass{
 
 function displayAllSessions(){
   let load = () => {
-    loading(document.querySelector('.allSessions'))
+    loading(document.querySelector('.allSessions'), 'loader1')
   }
   let func = (a) => {
     document.querySelector('.allSessions').innerHTML = a.responseText
@@ -79,7 +79,7 @@ function displayTheme(){
 
 function displayTeacherSettings(){
   let load = () => {
-    loading(document.querySelector('.stng_tch'))
+    loading(document.querySelector('.stng_tch'), 'loader')
   }
   let func = (a) => {
     document.querySelector('.stng_tch').innerHTML = a.responseText
@@ -91,7 +91,7 @@ function displayTeacherSettings(){
 
 function displayTeacherThemes(){
   let load = () => {
-    loading(document.querySelector('.themes_stngs'))
+    loading(document.querySelector('.themes_stngs'), 'loader')
   }
   let func = (a) => {
     document.querySelector('.themes_stngs').innerHTML = a.responseText
@@ -101,7 +101,7 @@ function displayTeacherThemes(){
 
 function displayAllStudentsUpcomingSessions(){
   let load = () => {
-    loading(document.querySelector('.upcomingSessions'))
+    loading(document.querySelector('.upcomingSessions'), 'loader')
   }
   let func = (a) => {
     document.querySelector('.upcomingSessions').innerHTML = a.responseText
@@ -111,7 +111,7 @@ function displayAllStudentsUpcomingSessions(){
 
 function displaymonthlyIncomeDetailsAll(month){
   let load = () => {
-    loading(document.querySelector('.std_infTXT'))
+    loading(document.querySelector('.std_infTXT'), 'loader')
   }
   let func = (a) => {
     document.querySelector('.std_infTXT').innerHTML = a.responseText
@@ -121,7 +121,7 @@ function displaymonthlyIncomeDetailsAll(month){
 
 function displayAllClasses(){
   let load = () => {
-    loading(document.querySelector('.showclasses'))
+    loading(document.querySelector('.showclasses'), 'loader')
   }
   let func = (a) => {
     document.querySelector('.showclasses').innerHTML = a.responseText
@@ -134,7 +134,7 @@ function displayAllClasses(){
 
 function applyTheme(a){
   let load = () => {
-    loading(a.children[0])
+    loading(a.children[0], 'loader')
     a.children[1].style = 'opacity:.5;'
   }
   let func = (b) => {
@@ -154,7 +154,7 @@ function applyTheme(a){
 
 function addClass(){
   let load = () => {
-    loading(document.querySelector('.add___'))
+    loading(document.querySelector('.add___'), 'loader')
   }
   let func = () =>{
     clearClassFields()
@@ -166,7 +166,7 @@ function addClass(){
 
 function removeCls(a){
   let load = () => {
-    loading(document.querySelector('.showclasses'))
+    loading(document.querySelector('.showclasses'), 'loader')
   }
   let func = () => {
     displayAllClasses();

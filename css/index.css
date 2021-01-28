@@ -7,8 +7,10 @@ html{font-family: 'Montserrat Alternates', sans-serif;
     --bg:#FCFCFC;
     --bg-panel:#EBEBEB;
     --color-heading:#0077ff;
-    --color-text:#333333;}
-
+    --color-text:#333333;
+    
+    --glass:rgba(200, 200, 200, 0.4);
+  }
 html[data-theme="dark"]{
     --text-color:#57b957;
     --bg:#333333;
@@ -148,3 +150,6 @@ text-align: center;font-size: 4em;color:var(--color-text);}
   border-width: 8px;
   border-style: solid;
   border-color: var(--bg) transparent transparent transparent;}
+.allSessions{width:749px;height:210px;}
+.allSessionsGraph{width:749px;height:178px;border:2px solid var(--glass);margin:10px auto;overflow: hidden;border-radius: 20px;}
+.allSessions span{font-size: 1.2em;margin-bottom:10px;}
