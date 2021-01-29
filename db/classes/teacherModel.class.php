@@ -91,6 +91,24 @@ class TeacherModel extends Db{
         $result = $stmt->fetchAll();
         return $result;
     }
+    
+    protected function getAllSessionsByYear($year){
+        $sql = "SELECT * FROM sessions WHERE YEAR(session_data_act) = ? ORDER BY session_data_act";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$year]);
+
+        $results = $stmt->fetchAll();
+        return $results;
+    }
+
+    protected function getAllUpcomingSessionsDay($day){
+        $sql = "SELECT * FROM sessions WHERE session_data_act LIKE ? ORDER BY session_data_act";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$day.'%']);
+
+        $results = $stmt->fetchAll();
+        return $results;
+    }
 
     protected function setTeacher($first_name, $last_name, $gender, $phone, $email){
         $sql = "INSERT INTO teacher (first_name, last_name, gender, phone, email)

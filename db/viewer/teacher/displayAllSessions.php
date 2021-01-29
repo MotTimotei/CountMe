@@ -1,7 +1,7 @@
 <?php
 include '../../myAutoLoader.php';
 
-$result = new StudentsView();
+$result = new TeacherView();
 $sessions = $result->returnAllSessionsByYear((new \DateTime('NOW'))->format("Y"));
 
 

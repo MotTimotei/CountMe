@@ -24,9 +24,6 @@ class StudentsView extends StudentsModel{
         return $this->getAllSessions();
     }
 
-    public function returnAllSessionsByYear($year){
-        return $this->getAllSessionsByYear($year);
-    }
 
     function returnSession($id){
         return $this->getSession($id);

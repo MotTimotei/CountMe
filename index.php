@@ -12,7 +12,7 @@ include "includes/header.php";
 </div>
 </div>
 <div class="sec_info organizeBox organizeBox__">
-    <h2>Upcoming sessions</h2>
+    <h2>Today's sessions</h2>
     <div class="upcomingSessions"></div>
 </div>
 

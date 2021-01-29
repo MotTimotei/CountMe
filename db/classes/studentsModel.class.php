@@ -90,15 +90,6 @@ class StudentsModel extends Db{
         return $results; 
     }
 
-    protected function getAllSessionsByYear($year){
-        $sql = "SELECT * FROM sessions WHERE YEAR(session_data_act) = ? ORDER BY session_data_act";
-        $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([$year]);
-
-        $results = $stmt->fetchAll();
-        return $results;
-    }
-
     protected function getSession($id){
         $sql = "SELECT * FROM sessions WHERE id = ?";
         $stmt = $this->connect()->prepare($sql);

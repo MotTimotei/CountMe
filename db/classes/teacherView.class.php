@@ -45,5 +45,13 @@ class TeacherView extends TeacherModel{
     public function returnAllStudentsUpcomingSessions(){
         return $this->getAllStudentsUpcomingSessions();
     }
+    
+    public function returnAllSessionsByYear($year){
+        return $this->getAllSessionsByYear($year);
+    }
+
+    public function returnAllUpcomingSessionsDay($day){
+        return $this->getAllUpcomingSessionsDay($day);
+    }
 
 }
