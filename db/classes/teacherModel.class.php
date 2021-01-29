@@ -54,6 +54,11 @@ class TeacherModel extends Db{
 
         $result = $stmt->fetchAll();
         return $result;
+            
+    //VERIFICA
+    //!!!!!!!
+    //!!!!!!
+//select name_ from teacher_class where id in (select teacher_class_id from student_class sd where sd.id = 53)
     }
 
     protected function getAllClassesFromAllTeachers(){
