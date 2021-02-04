@@ -29,8 +29,9 @@ else
     }
     $step = $length/count($sessions);
     for($i = 0;$i<count($sessions);$i++){
-        $dist = $length/$step;
-        echo '<text x="'.($i* $step).'" y="130" fill="var(--color-text)">'.(new \DateTime($sessions[$i]['session_data_act']))->format('H:i').'</text>';
+        $locOnDay = (new \DateTime($sessions[$i]['session_data_act']))->format('i') + (new \DateTime($sessions[$i]['session_data_act']))->format('H') * 60;
+        $dist = $locOnDay - $diff;
+        echo '<text x="'.$dist.'" y="130" fill="var(--color-text)">'.(new \DateTime($sessions[$i]['session_data_act']))->format('H:i').'</text>';
     }
 
 ?>

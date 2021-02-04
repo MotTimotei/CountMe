@@ -14,29 +14,6 @@ include "includes/header.php";
 <div class="sec_info organizeBox organizeBox__">
     <h2>Today's sessions</h2>
     <div class="upcomingSessions"></div>
-    <canvas id="myChart" width="400" height="400"></canvas>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-<script>
-var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
-
-    // The data for our dataset
-    data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45]
-        }]
-    },
-
-    // Configuration options go here
-    options: {}
-});
-</script>
 </div>
 
 <div class="allSessions"><?php include 'db/viewer/teacher/displayAllSessions.php'?></div>
